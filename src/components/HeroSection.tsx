@@ -90,7 +90,7 @@ const HeroSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="bg-card/60 backdrop-blur-md border border-border/50 rounded-lg p-8 text-center"
+              className="bg-card/30 backdrop-blur-xl border border-white/15 rounded-lg p-8 text-center shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]"
             >
               <card.icon className="w-8 h-8 text-primary mx-auto mb-4" />
               <h3 className="font-display text-xl text-foreground mb-2">{card.title}</h3>
