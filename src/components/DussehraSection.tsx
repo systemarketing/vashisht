@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import dussehraImg from "@/assets/dussehra.jpg";
 import dussehraCeremonyImg from "@/assets/dussehra-ceremony.jpg";
-import dussehraStreetImg from "@/assets/dussehra-street.jpg";
+import dussehraStreetImg from "@/assets/27f94163-7e9f-4daf-9e48-7b8417a6882b.jpg";
 
 const DussehraSection = () => {
   return (
