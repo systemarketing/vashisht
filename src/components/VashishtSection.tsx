@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import vashishtImg from "@/assets/vashisht.jpg";
+import vashishtTempleImg from "@/assets/vashisht-temple.jpg";
 
 const VashishtSection = () => {
   return (
