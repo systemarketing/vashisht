@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { MessageCircle, ExternalLink } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import maxImg from "@/assets/max-portrait.jpg";
-import ilyaImg from "@/assets/ilya-portrait.jpg";
+import ilyaImg from "@/assets/ilya-portrait.png";
 
 const LeadersSection = () => {
   const [maxOpen, setMaxOpen] = useState(false);
