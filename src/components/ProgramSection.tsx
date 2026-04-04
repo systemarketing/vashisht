@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import yogaImg from "@/assets/6fb2d426-b507-4a22-90db-fe21add50b72.png";
+import yogaImg from "@/assets/1449ba46-a505-4d6b-8850-3021e8e85c80.png";
 import trekkingImg from "@/assets/trekking.jpg";
-import workshopImg from "@/assets/fd1dffdc-943f-4d92-bda3-fd796a08c3c6.png";
+import workshopImg from "@/assets/88c3a17c-d085-49f1-9503-78095ecca1b3.png";
 
 const programs = [
   {
