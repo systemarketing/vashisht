@@ -19,16 +19,18 @@ const AccommodationSection = () => {
           viewport={{ once: true }}
           className="font-display text-4xl md:text-5xl text-section-light-foreground text-center mb-6"
         >
-          Дом с видом на бесконечность
+          Где будем жить и практиковать?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="font-body text-section-light-foreground/70 text-lg text-center max-w-3xl mx-auto leading-relaxed mb-16"
+          className="font-body text-section-light-foreground/70 text-lg text-center max-w-3xl mx-auto leading-relaxed mb-16 whitespace-pre-line"
         >
-          Наш лагерь — это уютный ретрит-центр «Васиштха йога дом», расположенный прямо в деревне Вашишт. Это пространство, специально созданное для практиков. Простые, но чистые и светлые номера выполнены в экологичном гималайском стиле с обилием дерева.
+          Наш лагерь — это уютный ретрит-центр «Васиштха йога дом»,
+          расположенный прямо в деревне Вашишт.
+          Это пространство, специально созданное для практиков. Простые, но чистые и светлые номера выполнены в экологичном гималайском стиле с обилием дерева.
         </motion.p>
 
         <motion.div
