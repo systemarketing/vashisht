@@ -45,7 +45,7 @@ const VashishtSection = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-4"
         >
           <img src={vashishtImg} alt="Вашишт" loading="lazy" className="w-full h-72 md:h-96 object-cover rounded-lg" />
-          <img src={vashishtImg} alt="Вашишт храм" loading="lazy" className="w-full h-72 md:h-96 object-cover rounded-lg" style={{ objectPosition: "right" }} />
+          <img src={vashishtTempleImg} alt="Вашишт храм" loading="lazy" className="w-full h-72 md:h-96 object-cover rounded-lg" style={{ objectPosition: "right" }} />
         </motion.div>
     </div>
   );
