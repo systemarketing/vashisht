@@ -8,6 +8,7 @@ import AccommodationSection from "@/components/AccommodationSection";
 import GallerySection from "@/components/GallerySection";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
+import LocationBlock from "@/components/LocationBlock";
 
 const Index = () => {
   return (
@@ -15,9 +16,7 @@ const Index = () => {
       <HeroSection />
       <ProgramSection />
       <LeadersSection />
-      <VashishtSection />
-      <RoerichSection />
-      <DussehraSection />
+      <LocationBlock />
       <AccommodationSection />
       <GallerySection />
       <PricingSection />

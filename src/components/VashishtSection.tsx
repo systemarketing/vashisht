@@ -46,8 +46,7 @@ const VashishtSection = () => {
           <img src={vashishtImg} alt="Вашишт" loading="lazy" className="w-full h-72 md:h-96 object-cover rounded-lg" />
           <img src={vashishtImg} alt="Вашишт храм" loading="lazy" className="w-full h-72 md:h-96 object-cover rounded-lg" style={{ objectPosition: "right" }} />
         </motion.div>
-      </div>
-    </section>
+    </div>
   );
 };
 

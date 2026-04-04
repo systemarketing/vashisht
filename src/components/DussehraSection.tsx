@@ -30,8 +30,7 @@ const DussehraSection = () => {
         >
           <img src={dussehraImg} alt="Душера в Куллу" loading="lazy" className="w-full h-72 md:h-[480px] object-cover rounded-lg" />
         </motion.div>
-      </div>
-    </section>
+    </div>
   );
 };
 
