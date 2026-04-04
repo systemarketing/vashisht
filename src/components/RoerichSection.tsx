@@ -16,7 +16,7 @@ const RoerichSection = () => {
           className="font-display text-3xl md:text-4xl text-foreground mb-6"
         >
           Мост между Западом и Востоком: Дом Рериха
-        </motion.h2>
+        </motion.h3>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
