@@ -21,7 +21,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative flex flex-col items-center overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -32,7 +32,7 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/90" />
 
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-40 md:pt-52">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -81,15 +81,22 @@ const HeroSection = () => {
         </motion.button>
       </div>
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 mt-20 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 mt-40 md:mt-52 pb-28">
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          style={{ transform: `translateY(${Math.max(0, (scrollY - 400)) * -0.1}px)` }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
           {cards.map((card, i) => (
             <motion.div
               key={card.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
+              transition={{ duration: 0.7, delay: i * 0.2, ease: "easeOut" }}
               className="bg-card/[0.05] backdrop-blur-xl border border-white/10 rounded-lg p-8 text-center shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]"
             >
               <card.icon className="w-8 h-8 text-primary mx-auto mb-4" />
@@ -97,7 +104,7 @@ const HeroSection = () => {
               <p className="font-body text-muted-foreground text-sm leading-relaxed">{card.desc}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <BookingDialog open={bookingOpen} onOpenChange={setBookingOpen} />
