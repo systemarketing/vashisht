@@ -43,7 +43,7 @@ const GallerySection = () => {
               onClick={() => setLightboxIndex(i)}
               className="flex-shrink-0 cursor-pointer overflow-hidden rounded-lg"
             >
-              <img src={src} alt={`Фото ${i + 1}`} loading="lazy" className="h-56 md:h-72 w-auto object-cover hover:scale-105 transition-transform duration-500" />
+              <img src={src} alt={`Фото ${i + 1}`} loading="lazy" className="h-[40vh] md:h-[50vh] w-auto object-cover hover:scale-105 transition-transform duration-500" />
             </motion.div>
           ))}
         </div>
