@@ -93,7 +93,8 @@ const HeroSection = () => {
               className="bg-card/60 backdrop-blur-md border border-border/50 rounded-lg p-8 text-center"
             >
               <card.icon className="w-8 h-8 text-primary mx-auto mb-4" />
-              <h3 className="font-display text-xl text-foreground">{card.title}</h3>
+              <h3 className="font-display text-xl text-foreground mb-2">{card.title}</h3>
+              <p className="font-body text-muted-foreground text-sm leading-relaxed">{card.desc}</p>
             </motion.div>
           ))}
         </div>
