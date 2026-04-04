@@ -26,9 +26,11 @@ const AccommodationSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="font-body text-section-light-foreground/70 text-lg text-center max-w-3xl mx-auto leading-relaxed mb-16"
+          className="font-body text-section-light-foreground/70 text-lg text-center max-w-3xl mx-auto leading-relaxed mb-16 whitespace-pre-line"
         >
-          Наш лагерь — это уютный ретрит-центр «Васиштха йога дом», расположенный прямо в деревне Вашишт. Это пространство, специально созданное для практиков. Простые, но чистые и светлые номера выполнены в экологичном гималайском стиле с обилием дерева.
+          Наш лагерь — это уютный ретрит-центр «Васиштха йога дом»,
+          расположенный прямо в деревне Вашишт.
+          Это пространство, специально созданное для практиков. Простые, но чистые и светлые номера выполнены в экологичном гималайском стиле с обилием дерева.
         </motion.p>
 
         <motion.div
