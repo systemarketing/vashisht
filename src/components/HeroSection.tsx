@@ -15,9 +15,9 @@ const HeroSection = () => {
   }, []);
 
   const cards = [
-    { icon: Mountain, title: "Место силы" },
-    { icon: Flame, title: "Время перемен" },
-    { icon: Settings, title: "Йога и Система" },
+    { icon: Mountain, title: "Место силы", desc: "Деревня Вашишт. Практика на высоте 2100м в окружении гималайских кедров, горячих источников и пятитысячных снежных пиков." },
+    { icon: Flame, title: "Время перемен", desc: "Даты Душеры. Поездка совпадает с великим фестивалем победы света над тьмой. Идеальный момент для работы над собственными ограничениями." },
+    { icon: Settings, title: "Йога и Система", desc: "Симбиоз традиций и бизнеса. Практика работы с телом от авторизованного преподавателя Аштанги и системный подход к своему делу от эксперта по маркетингу." },
   ];
 
   return (
@@ -93,7 +93,8 @@ const HeroSection = () => {
               className="bg-card/60 backdrop-blur-md border border-border/50 rounded-lg p-8 text-center"
             >
               <card.icon className="w-8 h-8 text-primary mx-auto mb-4" />
-              <h3 className="font-display text-xl text-foreground">{card.title}</h3>
+              <h3 className="font-display text-xl text-foreground mb-2">{card.title}</h3>
+              <p className="font-body text-muted-foreground text-sm leading-relaxed">{card.desc}</p>
             </motion.div>
           ))}
         </div>

@@ -28,8 +28,22 @@ const AccommodationSection = () => {
           transition={{ delay: 0.15 }}
           className="font-body text-section-light-foreground/70 text-lg text-center max-w-3xl mx-auto leading-relaxed mb-16"
         >
-          Мы живём и практикуем в уютном ретрит-центре с панорамным видом на Гималаи. Просторный зал для йоги, комфортные номера, домашняя кухня и терраса, с которой открывается вид на заснеженные вершины.
+          Наш лагерь — это уютный ретрит-центр «Васиштха йога дом», расположенный прямо в деревне Вашишт. Это пространство, специально созданное для практиков. Простые, но чистые и светлые номера выполнены в экологичном гималайском стиле с обилием дерева.
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.25 }}
+          className="max-w-3xl mx-auto mb-16"
+        >
+          <ul className="font-body text-section-light-foreground/70 text-lg space-y-3">
+            <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Практика:</strong> Просторный зал для йоги с панорамными окнами на долину Куллу и снежные пики.</span></li>
+            <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Размещение:</strong> Одно- и двухместные номера. У каждого номера балкон или терраса для встречи рассветов.</span></li>
+            <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Атмосфера:</strong> Никакого городского шума — только звуки горных водопадов, пение птиц и чистый воздух.</span></li>
+          </ul>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {images.map((img, i) => (
