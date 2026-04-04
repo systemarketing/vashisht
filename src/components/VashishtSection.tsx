@@ -20,8 +20,22 @@ const VashishtSection = () => {
           transition={{ delay: 0.15 }}
           className="font-body text-muted-foreground text-lg text-center max-w-3xl mx-auto leading-relaxed mb-12"
         >
-          Древняя деревня в долине Куллу, стоящая на горячих источниках у подножия гималайских пиков. По легенде, именно здесь мудрец Вашишта совершал аскезу, а сам Рама приходил сюда за силой и мудростью.
+          Деревня Вашишт (2100 м) — это не просто точка на карте Гималаев, это живая легенда. Именно здесь, согласно преданиям, великий мудрец Васиштха обучал царя Раму искусству йоги и законам мироздания. Сердце деревни — древний каменный храм, на территории которого тысячелетиями бьют целебные горячие сероводородные источники, подаренные богами.
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.25 }}
+          className="max-w-3xl mx-auto mb-12"
+        >
+          <ul className="font-body text-muted-foreground text-lg space-y-3">
+            <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Источники:</strong> Ежедневное омовение в целебных водах после практики для глубокого расслабления тела.</span></li>
+            <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Водопад Йогини:</strong> Трекинг по живописной тропе к мощному водопаду сквозь яблоневые сады.</span></li>
+            <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Аутентичность:</strong> Традиционная гималайская архитектура и атмосфера глубинной Индии.</span></li>
+          </ul>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
