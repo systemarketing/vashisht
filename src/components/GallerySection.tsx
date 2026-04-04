@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import heroImg from "@/assets/hero-mountains.jpg";
 import yogaImg from "@/assets/yoga-practice.jpg";
-import trekkingImg from "@/assets/trekking.jpg";
+import trekkingImg from "@/assets/1fc30b43-4878-4f53-8ded-827bc83c3003.jpg";
 import workshopImg from "@/assets/workshop.png";
-import vashishtImg from "@/assets/vashisht.jpg";
-import retreatImg from "@/assets/retreat-house.jpg";
-import roomImg from "@/assets/room-interior.jpg";
+import vashishtImg from "@/assets/f76ffcd9-e8aa-4715-be29-70ed55955a48.jpg";
+import retreatImg from "@/assets/8d695d8c-7d49-4cd1-9384-c13fa9051f9b.jpg";
+import roomImg from "@/assets/86a39685-2e43-4c2e-b21f-cc9c91bd8410.jpg";
 import dussehraImg from "@/assets/dussehra.jpg";
 
 const photos = [heroImg, yogaImg, trekkingImg, vashishtImg, workshopImg, retreatImg, roomImg, dussehraImg];
