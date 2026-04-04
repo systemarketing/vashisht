@@ -19,7 +19,7 @@ const AccommodationSection = () => {
           viewport={{ once: true }}
           className="font-display text-4xl md:text-5xl text-section-light-foreground text-center mb-6"
         >
-          Дом с видом на бесконечность
+          Где будем жить и практиковать?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

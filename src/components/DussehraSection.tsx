@@ -12,7 +12,7 @@ const DussehraSection = () => {
         viewport={{ once: true }}
         className="font-display text-3xl md:text-4xl text-foreground text-center mb-6"
       >
-        Душера в Долине Богов
+        Праздник Душера в Долине Богов
       </motion.h3>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
