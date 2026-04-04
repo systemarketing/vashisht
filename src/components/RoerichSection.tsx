@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import roerichImg from "@/assets/roerich.jpg";
+import roerichImg from "@/assets/roerich-house.jpg";
 
 const RoerichSection = () => {
   return (
