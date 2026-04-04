@@ -3,16 +3,15 @@ import dussehraImg from "@/assets/dussehra.jpg";
 
 const DussehraSection = () => {
   return (
-    <section className="py-24 bg-background">
-      <div className="max-w-6xl mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="font-display text-4xl md:text-5xl text-foreground text-center mb-6"
-        >
-          Душера в Долине Богов
-        </motion.h2>
+    <div className="max-w-6xl mx-auto px-4">
+      <motion.h3
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="font-display text-3xl md:text-4xl text-foreground text-center mb-6"
+      >
+        Душера в Долине Богов
+      </motion.h3>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
