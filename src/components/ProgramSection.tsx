@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import yogaImg from "@/assets/01_practica.png";
 import trekkingImg from "@/assets/trekking.jpg";
-import workshopImg from "@/assets/workshop.png";
+import workshopImg from "@/assets/workshop_marketing.png";
 
 const programs = [
   {
