@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import retreatImg from "@/assets/retreat-house.jpg";
 import roomImg from "@/assets/room-interior.jpg";
-import yogaImg from "@/assets/yoga-practice.png";
+import yogaImg from "@/assets/yoga-hall.png";
 
 const images = [
   { src: retreatImg, alt: "Ретрит-центр" },

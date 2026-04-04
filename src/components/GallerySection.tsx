@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import heroImg from "@/assets/hero-mountains.jpg";
-import yogaImg from "@/assets/yoga-practice.png";
+import yogaImg from "@/assets/yoga-practice.jpg";
 import trekkingImg from "@/assets/trekking.jpg";
 import workshopImg from "@/assets/workshop.png";
 import vashishtImg from "@/assets/vashisht.jpg";

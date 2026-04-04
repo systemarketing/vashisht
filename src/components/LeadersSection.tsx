@@ -34,7 +34,7 @@ const LeadersSection = () => {
             <div className="p-8">
               <h3 className="font-display text-3xl text-foreground mb-3">Макс Лапшин</h3>
               <p className="font-body text-muted-foreground leading-relaxed mb-6">
-                Авторизованный преподаватель Аштанга-йоги (KPJAYI, 2-й уровень). 13 лет ежедневной практики. Свой первый тур в Вашишт провел еще в 2012 году.
+                Авторизованный преподаватель Аштанга-йоги (KPJAYI, 2-й уровень). 13 лет ежедневной практики. Основатель Аштанга йога шалы в Н.Новгороде. Свой первый тур в Вашишт провел еще в 2012 году.
               </p>
               <div className="flex items-center gap-4 mb-6">
                 <a href="https://t.me/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
@@ -65,7 +65,7 @@ const LeadersSection = () => {
             <div className="p-8">
               <h3 className="font-display text-3xl text-foreground mb-3">Илья Харитонов</h3>
               <p className="font-body text-muted-foreground leading-relaxed mb-6">
-                Основатель «Системы» и автор подхода кармического маркетинга. Жил в Гималаях и выстроил 100% удаленный системный бизнес.
+                Маркетолог, бизнес-консультант, основатель команды «Системы» и адепт подхода кармического маркетинга. Жил в Гималаях и выстроил 100% удаленный системный бизнес.
               </p>
               <div className="flex items-center gap-4 mb-6">
                 <a href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
