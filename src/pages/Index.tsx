@@ -1,16 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import HeroSection from "@/components/HeroSection";
+import ProgramSection from "@/components/ProgramSection";
+import LeadersSection from "@/components/LeadersSection";
+import VashishtSection from "@/components/VashishtSection";
+import RoerichSection from "@/components/RoerichSection";
+import DussehraSection from "@/components/DussehraSection";
+import AccommodationSection from "@/components/AccommodationSection";
+import GallerySection from "@/components/GallerySection";
+import PricingSection from "@/components/PricingSection";
+import FAQSection from "@/components/FAQSection";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <main>
+      <HeroSection />
+      <ProgramSection />
+      <LeadersSection />
+      <VashishtSection />
+      <RoerichSection />
+      <DussehraSection />
+      <AccommodationSection />
+      <GallerySection />
+      <PricingSection />
+      <FAQSection />
+      <footer className="py-12 bg-card border-t border-border text-center">
+        <p className="font-body text-muted-foreground text-sm">
+          © 2026 Аштанга-тур в Гималаи. Все права защищены.
+        </p>
+      </footer>
+    </main>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
