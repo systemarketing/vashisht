@@ -6,7 +6,7 @@ const PricingSection = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
 
   return (
-    <section className="py-24 bg-secondary/30">
+    <section id="pricing" className="py-24 bg-secondary/30">
       <div className="max-w-3xl mx-auto px-4 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
