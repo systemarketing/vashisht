@@ -183,5 +183,6 @@ const VashishtSection = () => {
       </div>
     </div>
   );
+};
 
 export default VashishtSection;
