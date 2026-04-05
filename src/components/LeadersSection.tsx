@@ -2,8 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Instagram, Send, ExternalLink } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import maxImg from "@/assets/max-portrait.jpg";
-import ilyaImg from "@/assets/ilya-portrait.png";
+const maxImg = "https://storage.yandexcloud.net/systemarketing-media/maks%20(2).jpg";
+const ilyaImg = "https://storage.yandexcloud.net/systemarketing-media/KharitonovRUS.jpg";
 
 const LeadersSection = () => {
   const [maxOpen, setMaxOpen] = useState(false);
