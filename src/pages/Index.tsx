@@ -15,6 +15,7 @@ const Index = () => {
   return (
     <main>
       <SiteHeader />
+      <HeroSection />
       <ProgramSection />
       <LeadersSection />
       <LocationBlock />
