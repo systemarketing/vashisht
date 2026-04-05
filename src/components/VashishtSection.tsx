@@ -92,41 +92,43 @@ const VashishtSection = () => {
   }, [normalizePos]);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 mb-20">
-      <motion.h3
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="font-display text-3xl md:text-4xl text-foreground text-center mb-6"
-      >
-        Вашишт: там, где Рама обрел силу
-      </motion.h3>
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.15 }}
-        className="font-body text-muted-foreground text-lg text-center max-w-3xl mx-auto leading-relaxed mb-12"
-      >
-        Деревня Вашишт (2100 м) — это не просто точка на карте Гималаев, это живая легенда. Именно здесь, согласно преданиям, великий мудрец Васиштха обучал царя Раму искусству йоги и законам мироздания. Сердце деревни — древний каменный храм, на территории которого тысячелетиями бьют целебные горячие сероводородные источники, подаренные богами.
-      </motion.p>
+    <div className="mb-20">
+      <div className="max-w-6xl mx-auto px-4">
+        <motion.h3
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-display text-3xl md:text-4xl text-foreground text-center mb-6"
+        >
+          Вашишт: там, где Рама обрел силу
+        </motion.h3>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.15 }}
+          className="font-body text-muted-foreground text-lg text-center max-w-3xl mx-auto leading-relaxed mb-12"
+        >
+          Деревня Вашишт (2100 м) — это не просто точка на карте Гималаев, это живая легенда. Именно здесь, согласно преданиям, великий мудрец Васиштха обучал царя Раму искусству йоги и законам мироздания. Сердце деревни — древний каменный храм, на территории которого тысячелетиями бьют целебные горячие сероводородные источники, подаренные богами.
+        </motion.p>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.25 }}
-        className="max-w-3xl mx-auto mb-12"
-      >
-        <ul className="font-body text-muted-foreground text-lg space-y-3">
-          <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Источники:</strong> Ежедневное омовение в целебных водах после практики для глубокого расслабления тела.</span></li>
-          <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Водопад Йогини:</strong> Трекинг по живописной тропе к мощному водопаду сквозь яблоневые сады.</span></li>
-          <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Аутентичность:</strong> Традиционная гималайская архитектура и атмосфера глубинной Индии.</span></li>
-        </ul>
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.25 }}
+          className="max-w-3xl mx-auto mb-12"
+        >
+          <ul className="font-body text-muted-foreground text-lg space-y-3">
+            <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Источники:</strong> Ежедневное омовение в целебных водах после практики для глубокого расслабления тела.</span></li>
+            <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Водопад Йогини:</strong> Трекинг по живописной тропе к мощному водопаду сквозь яблоневые сады.</span></li>
+            <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Аутентичность:</strong> Традиционная гималайская архитектура и атмосфера глубинной Индии.</span></li>
+          </ul>
+        </motion.div>
+      </div>
 
-      {/* Infinite gallery */}
-      <div className="relative overflow-hidden group -mx-4">
+      {/* Infinite gallery — full width */}
+      <div className="relative overflow-hidden group">
         <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
@@ -179,31 +181,7 @@ const VashishtSection = () => {
           })}
         </div>
       </div>
-
-      {/* Lightbox */}
-      <AnimatePresence>
-        {lightboxSrc && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-background/90 backdrop-blur-sm flex items-center justify-center"
-            onClick={() => setLightboxSrc(null)}
-          >
-            <button onClick={() => setLightboxSrc(null)} className="absolute top-6 right-6 text-foreground hover:text-primary transition-colors">
-              <X className="w-8 h-8" />
-            </button>
-            <img
-              src={lightboxSrc}
-              alt=""
-              className="max-h-[70vh] max-w-[70vw] object-contain rounded-xl shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
-};
 
 export default VashishtSection;
