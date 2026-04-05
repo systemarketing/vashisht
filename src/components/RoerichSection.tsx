@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
-import roerichImg from "@/assets/roerich-house.jpg";
 
 const RoerichSection = () => {
   return (
     <div className="relative py-24 overflow-hidden mb-20">
       <div className="absolute inset-0">
-        <img src={roerichImg} alt="Дом Рериха" loading="lazy" className="w-full h-full object-cover" />
+        <img src="https://storage.yandexcloud.net/systemarketing-media/Roerich-museum.jpg" alt="Дом Рериха" loading="lazy" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-background/75" />
       </div>
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
@@ -13,10 +12,19 @@ const RoerichSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-display text-3xl md:text-4xl text-foreground mb-6"
+          className="font-display text-3xl md:text-4xl text-foreground mb-3"
         >
-          Дом-музей Рериха - прибежище умиротворения
+          Рядом находится дом Николая Рериха
         </motion.h3>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="font-body text-muted-foreground text-xl mb-6"
+        >
+          Прибежище умиротворения и внутренней гармонии
+        </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
