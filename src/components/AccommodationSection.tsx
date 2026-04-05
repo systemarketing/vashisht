@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
   "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(1).jpg",
@@ -15,51 +15,100 @@ const galleryImages = [
   "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(10).jpg",
 ];
 
+const SCROLL_AMOUNT = 400;
+
 const AccommodationSection = () => {
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const animRef = useRef<number>(0);
+  const posRef = useRef(0);
+  const pausedRef = useRef(false);
 
-  // Duplicate images for seamless infinite scroll
   const loopedImages = [...galleryImages, ...galleryImages, ...galleryImages];
-  const totalWidth = useRef(0);
 
+  const getSingleSetWidth = useCallback(() => {
+    const el = scrollRef.current;
+    return el ? el.scrollWidth / 3 : 0;
+  }, []);
+
+  const normalizePos = useCallback(() => {
+    const singleSetWidth = getSingleSetWidth();
+    if (singleSetWidth > 0) {
+      while (posRef.current >= singleSetWidth * 2) posRef.current -= singleSetWidth;
+      while (posRef.current < 0) posRef.current += singleSetWidth;
+    }
+  }, [getSingleSetWidth]);
+
+  // Auto-scroll
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
 
-    let pos = 0;
-    const speed = 0.4; // px per frame
+    const speed = 0.4;
 
     const step = () => {
-      pos += speed;
-      // Reset seamlessly when we've scrolled past the first copy
-      const singleSetWidth = el.scrollWidth / 3;
-      if (pos >= singleSetWidth) {
-        pos -= singleSetWidth;
+      if (!pausedRef.current) {
+        posRef.current += speed;
+        normalizePos();
+        el.scrollLeft = posRef.current;
       }
-      el.scrollLeft = pos;
       animRef.current = requestAnimationFrame(step);
     };
 
+    // Start from middle set
+    posRef.current = getSingleSetWidth();
+    el.scrollLeft = posRef.current;
     animRef.current = requestAnimationFrame(step);
 
-    const pause = () => cancelAnimationFrame(animRef.current);
-    const resume = () => { animRef.current = requestAnimationFrame(step); };
+    return () => cancelAnimationFrame(animRef.current);
+  }, [normalizePos, getSingleSetWidth]);
 
-    el.addEventListener("mouseenter", pause);
-    el.addEventListener("mouseleave", resume);
-    el.addEventListener("touchstart", pause);
-    el.addEventListener("touchend", resume);
-
-    return () => {
-      cancelAnimationFrame(animRef.current);
-      el.removeEventListener("mouseenter", pause);
-      el.removeEventListener("mouseleave", resume);
-      el.removeEventListener("touchstart", pause);
-      el.removeEventListener("touchend", resume);
-    };
+  const pause = useCallback(() => { pausedRef.current = true; }, []);
+  const resume = useCallback(() => {
+    const el = scrollRef.current;
+    if (el) posRef.current = el.scrollLeft;
+    pausedRef.current = false;
   }, []);
+
+  // Arrow click scroll
+  const scrollBy = useCallback((dir: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    pausedRef.current = true;
+    const target = el.scrollLeft + dir * SCROLL_AMOUNT;
+    el.scrollTo({ left: target, behavior: "smooth" });
+    setTimeout(() => {
+      posRef.current = el.scrollLeft;
+      normalizePos();
+      el.scrollLeft = posRef.current;
+      pausedRef.current = false;
+    }, 500);
+  }, [normalizePos]);
+
+  // Touch swipe support
+  const touchStartX = useRef(0);
+  const touchScrollStart = useRef(0);
+
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
+    pausedRef.current = true;
+    touchStartX.current = e.touches[0].clientX;
+    touchScrollStart.current = scrollRef.current?.scrollLeft ?? 0;
+  }, []);
+
+  const onTouchMove = useCallback((e: React.TouchEvent) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const delta = touchStartX.current - e.touches[0].clientX;
+    el.scrollLeft = touchScrollStart.current + delta;
+  }, []);
+
+  const onTouchEnd = useCallback(() => {
+    const el = scrollRef.current;
+    if (el) posRef.current = el.scrollLeft;
+    normalizePos();
+    if (el) el.scrollLeft = posRef.current;
+    pausedRef.current = false;
+  }, [normalizePos]);
 
   return (
     <section id="accommodation" className="py-24 bg-section-light">
@@ -100,19 +149,39 @@ const AccommodationSection = () => {
       </div>
 
       {/* Infinite scrolling gallery */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden group">
         {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-section-light to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-section-light to-transparent z-10 pointer-events-none" />
+
+        {/* Arrow buttons — desktop only */}
+        <button
+          onClick={() => scrollBy(-1)}
+          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center rounded-full bg-background/30 backdrop-blur-md border border-white/10 text-foreground/60 hover:text-foreground hover:bg-background/50 transition-all opacity-0 group-hover:opacity-100"
+          aria-label="Назад"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <button
+          onClick={() => scrollBy(1)}
+          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center rounded-full bg-background/30 backdrop-blur-md border border-white/10 text-foreground/60 hover:text-foreground hover:bg-background/50 transition-all opacity-0 group-hover:opacity-100"
+          aria-label="Вперёд"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
 
         <div
           ref={scrollRef}
           className="flex items-center gap-4 overflow-x-hidden py-4"
           style={{ scrollBehavior: "auto" }}
+          onMouseEnter={pause}
+          onMouseLeave={resume}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
           {loopedImages.map((src, i) => {
             const originalIndex = i % galleryImages.length;
-            // Every 3rd image (center feel) is larger
             const isFeatured = originalIndex % 3 === 1;
 
             return (
