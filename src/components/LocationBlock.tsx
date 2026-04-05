@@ -5,7 +5,7 @@ import DussehraSection from "./DussehraSection";
 
 const LocationBlock = () => {
   return (
-    <section className="py-24 bg-accent/20">
+    <section id="location" className="py-24 bg-accent/20">
       <div className="max-w-6xl mx-auto px-4 mb-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

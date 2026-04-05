@@ -1,3 +1,4 @@
+import SiteHeader from "@/components/SiteHeader";
 import HeroSection from "@/components/HeroSection";
 import ProgramSection from "@/components/ProgramSection";
 import LeadersSection from "@/components/LeadersSection";
@@ -13,7 +14,7 @@ import LocationBlock from "@/components/LocationBlock";
 const Index = () => {
   return (
     <main>
-      <HeroSection />
+      <SiteHeader />
       <ProgramSection />
       <LeadersSection />
       <LocationBlock />
