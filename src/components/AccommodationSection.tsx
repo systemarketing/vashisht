@@ -1,15 +1,66 @@
-import { motion } from "framer-motion";
-import retreatImg from "@/assets/retreat-house.jpg";
-import roomImg from "@/assets/room-interior.jpg";
-import yogaImg from "@/assets/yoga-hall.png";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 
-const images = [
-  { src: retreatImg, alt: "Ретрит-центр" },
-  { src: roomImg, alt: "Интерьер номера" },
-  { src: yogaImg, alt: "Зал для йоги" },
+const galleryImages = [
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(1).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(2).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(3).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(4).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(5).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(6).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(7).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(8).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(9).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(10).jpg",
 ];
 
 const AccommodationSection = () => {
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const animRef = useRef<number>(0);
+
+  // Duplicate images for seamless infinite scroll
+  const loopedImages = [...galleryImages, ...galleryImages, ...galleryImages];
+  const totalWidth = useRef(0);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    let pos = 0;
+    const speed = 0.4; // px per frame
+
+    const step = () => {
+      pos += speed;
+      // Reset seamlessly when we've scrolled past the first copy
+      const singleSetWidth = el.scrollWidth / 3;
+      if (pos >= singleSetWidth) {
+        pos -= singleSetWidth;
+      }
+      el.scrollLeft = pos;
+      animRef.current = requestAnimationFrame(step);
+    };
+
+    animRef.current = requestAnimationFrame(step);
+
+    const pause = () => cancelAnimationFrame(animRef.current);
+    const resume = () => { animRef.current = requestAnimationFrame(step); };
+
+    el.addEventListener("mouseenter", pause);
+    el.addEventListener("mouseleave", resume);
+    el.addEventListener("touchstart", pause);
+    el.addEventListener("touchend", resume);
+
+    return () => {
+      cancelAnimationFrame(animRef.current);
+      el.removeEventListener("mouseenter", pause);
+      el.removeEventListener("mouseleave", resume);
+      el.removeEventListener("touchstart", pause);
+      el.removeEventListener("touchend", resume);
+    };
+  }, []);
+
   return (
     <section id="accommodation" className="py-24 bg-section-light">
       <div className="max-w-6xl mx-auto px-4">
@@ -46,22 +97,71 @@ const AccommodationSection = () => {
             <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Атмосфера:</strong> Никакого городского шума — только звуки горных водопадов, пение птиц и чистый воздух.</span></li>
           </ul>
         </motion.div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {images.map((img, i) => (
-            <motion.div
-              key={img.alt}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="overflow-hidden rounded-lg"
-            >
-              <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-64 object-cover hover:scale-105 transition-transform duration-700" />
-            </motion.div>
-          ))}
+      {/* Infinite scrolling gallery */}
+      <div className="relative overflow-hidden">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-section-light to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-section-light to-transparent z-10 pointer-events-none" />
+
+        <div
+          ref={scrollRef}
+          className="flex items-center gap-4 overflow-x-hidden py-4"
+          style={{ scrollBehavior: "auto" }}
+        >
+          {loopedImages.map((src, i) => {
+            const originalIndex = i % galleryImages.length;
+            // Every 3rd image (center feel) is larger
+            const isFeatured = originalIndex % 3 === 1;
+
+            return (
+              <div
+                key={i}
+                onClick={() => setLightboxSrc(src)}
+                className={`flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-2xl ${
+                  isFeatured
+                    ? "h-[280px] md:h-[380px] w-[320px] md:w-[440px]"
+                    : "h-[220px] md:h-[300px] w-[260px] md:w-[350px]"
+                }`}
+              >
+                <img
+                  src={src}
+                  alt={`Васиштха йога дом ${originalIndex + 1}`}
+                  loading="lazy"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightboxSrc && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-background/90 backdrop-blur-sm flex items-center justify-center"
+            onClick={() => setLightboxSrc(null)}
+          >
+            <button
+              onClick={() => setLightboxSrc(null)}
+              className="absolute top-6 right-6 text-foreground hover:text-primary transition-colors"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <img
+              src={lightboxSrc}
+              alt=""
+              className="max-h-[60vh] max-w-[60vw] object-contain rounded-xl shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
