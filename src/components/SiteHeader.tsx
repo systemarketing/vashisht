@@ -59,7 +59,6 @@ const SiteHeader = () => {
             >
               Забронировать
             </button>
-            </button>
           </div>
         </div>
 
