@@ -21,7 +21,7 @@ const RoerichSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-body text-muted-foreground text-xl mb-6"
+          className="font-body text-muted-foreground text-sm md:text-xl mb-6"
         >
           Прибежище умиротворения и внутренней гармонии
         </motion.p>
@@ -30,7 +30,7 @@ const RoerichSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="font-body text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto"
+          className="font-body text-muted-foreground text-sm md:text-lg leading-relaxed max-w-2xl mx-auto"
         >
           Всего в часе езды от Вашишта, в Наггаре, находится усадьба великого русского художника и мыслителя Николая Рериха. Он прожил здесь последние 20 лет жизни, создавая знаменитые гималайские серии. Мы посетим его дом, мемориал и институт «Урусвати», чтобы увидеть Гималаи его глазами — глазами человека, искавшего синтез духовного и земного.
         </motion.p>

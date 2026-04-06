@@ -19,7 +19,7 @@ const LocationBlock = () => {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">
             Место и время тура — уникальны
           </h2>
-          <p className="font-body text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="font-body text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto">
             Древние святыни, наследие Рериха и великий праздник Душера — всё сходится в одной точке
           </p>
         </motion.div>

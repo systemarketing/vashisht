@@ -19,7 +19,7 @@ const DussehraSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.15 }}
-        className="font-body text-muted-foreground text-lg text-center max-w-3xl mx-auto leading-relaxed mb-12 whitespace-pre-line"
+        className="font-body text-muted-foreground text-sm md:text-lg text-center max-w-3xl mx-auto leading-relaxed mb-12 whitespace-pre-line"
       >
         Наш интенсив не случайно проходит в середине октября. Эти даты совпадают с великим индуистским фестивалем Душера — символом победы света над тьмой, победы Рамы над десятиголовым демоном Раваной (олицетворением 10 пороков эго). В долине Куллу Душера празднуется совершенно по-особенному: местные жители спускают из горных деревень паланкины со своими божествами. Мы также застанем празднества богини Хидимбы, чей уникальный храм с 4000 летней историей стоит посреди сказочного реликтового кедрового леса в Манали.
         Это шанс прикоснуться к нетуристической мистике Индии.
