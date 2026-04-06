@@ -33,7 +33,7 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
               Telegram
             </a>
             <a
-              href="https://vk.com/im/convo/3768091"
+              href="https://m.vk.com/write3768091"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-6 py-3.5 bg-secondary text-secondary-foreground rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors font-body"
