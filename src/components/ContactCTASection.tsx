@@ -39,7 +39,7 @@ const ContactCTASection = () => {
             Telegram
           </a>
           <a
-            href="https://vk.com/im/convo/3768091"
+            href="https://m.vk.com/write3768091"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-8 py-3 border border-primary text-primary font-body text-sm tracking-wider uppercase rounded-sm hover:bg-primary hover:text-primary-foreground transition-colors w-full sm:w-auto justify-center"
