@@ -142,7 +142,7 @@ const AccommodationSection = () => {
         >
           <ul className="font-body text-section-light-foreground/70 text-sm md:text-lg space-y-3">
             <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Практика:</strong> Просторный зал для йоги с панорамными окнами на долину Куллу и снежные пики.</span></li>
-            <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Размещение:</strong> Одно- и двухместные номера. У каждого номера балкон или терраса для встречи рассветов.</span></li>
+            <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Размещение:</strong> Одно- и двухместные номера с видами на Гималаи и яблоневые сады</span></li>
             <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Атмосфера:</strong> Никакого городского шума — только звуки горных водопадов, пение птиц и чистый воздух.</span></li>
           </ul>
         </motion.div>
