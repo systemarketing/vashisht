@@ -87,7 +87,7 @@ const LeadersSection = () => {
       </div>
 
       <Dialog open={maxOpen} onOpenChange={setMaxOpen}>
-        <DialogContent className="bg-card border-border max-w-lg max-h-[85vh] overflow-y-auto">
+        <DialogContent className="bg-card border-border max-w-3xl max-h-[90vh] overflow-y-auto [&>button]:top-2 [&>button]:right-2 [&>button]:bg-card/80 [&>button]:rounded-full [&>button]:p-1">
           <img src={maxImg} alt="Макс Лапшин" className="w-full h-64 object-cover object-top rounded-md" />
           <DialogHeader>
             <DialogTitle className="font-display text-2xl">Макс Лапшин</DialogTitle>
@@ -102,7 +102,7 @@ const LeadersSection = () => {
       </Dialog>
 
       <Dialog open={ilyaOpen} onOpenChange={setIlyaOpen}>
-        <DialogContent className="bg-card border-border max-w-lg max-h-[85vh] overflow-y-auto">
+        <DialogContent className="bg-card border-border max-w-3xl max-h-[90vh] overflow-y-auto [&>button]:top-2 [&>button]:right-2 [&>button]:bg-card/80 [&>button]:rounded-full [&>button]:p-1">
           <img src={ilyaImg} alt="Илья Харитонов" className="w-full h-64 object-cover object-top rounded-md" />
           <DialogHeader>
             <DialogTitle className="font-display text-2xl">Илья Харитонов</DialogTitle>
