@@ -30,9 +30,7 @@ const DussehraSection = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {[
-          { src: dussehraImg, alt: "Душера в Куллу", delay: 0 },
-          { src: dussehraCeremonyImg, alt: "Церемония Душеры", delay: 0.15 },
-          { src: dussehraStreetImg, alt: "Улицы во время Душеры", delay: 0.3 },
+          ...dussehraImages,
         ].map((img) => (
           <motion.div
             key={img.alt}
