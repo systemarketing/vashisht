@@ -9,6 +9,7 @@ import AccommodationSection from "@/components/AccommodationSection";
 import GallerySection from "@/components/GallerySection";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
+import ContactCTASection from "@/components/ContactCTASection";
 import LocationBlock from "@/components/LocationBlock";
 
 const Index = () => {
@@ -23,6 +24,7 @@ const Index = () => {
       <GallerySection />
       <PricingSection />
       <FAQSection />
+      <ContactCTASection />
       <footer className="py-12 bg-card border-t border-border text-center">
         <p className="font-body text-muted-foreground text-sm">
           © 2026 Аштанга-тур в Гималаи. Все права защищены.

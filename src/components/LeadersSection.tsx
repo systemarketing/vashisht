@@ -33,7 +33,7 @@ const LeadersSection = () => {
             <img src={maxImg} alt="Макс Лапшин" loading="lazy" className="w-full h-80 object-cover object-top" />
             <div className="p-8">
               <h3 className="font-display text-3xl text-foreground mb-3">Макс Лапшин</h3>
-              <p className="font-body text-muted-foreground leading-relaxed mb-6">
+              <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed mb-6">
                 Авторизованный преподаватель Аштанга-йоги (KPJAYI, 2-й уровень). 13 лет ежедневной практики. Основатель Аштанга йога шалы в Н.Новгороде. Свой первый тур в Вашишт провел еще в 2019 году.
               </p>
               <div className="flex items-center gap-4 mb-6">
@@ -67,7 +67,7 @@ const LeadersSection = () => {
             <img src={ilyaImg} alt="Илья Харитонов" loading="lazy" className="w-full h-80 object-cover object-top" />
             <div className="p-8">
               <h3 className="font-display text-3xl text-foreground mb-3">Илья Харитонов</h3>
-              <p className="font-body text-muted-foreground leading-relaxed mb-6">
+              <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed mb-6">
                 Маркетолог, бизнес-консультант, основатель команды «Системы» и адепт подхода кармического маркетинга. Жил в Гималаях и выстроил 100% удаленный системный бизнес.
               </p>
               <div className="flex items-center gap-4 mb-6">
@@ -92,10 +92,10 @@ const LeadersSection = () => {
           <DialogHeader>
             <DialogTitle className="font-display text-2xl">Макс Лапшин</DialogTitle>
           </DialogHeader>
-          <p className="font-body text-muted-foreground leading-relaxed">
+          <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed">
             Макс Лапшин — авторизованный преподаватель Аштанга-йоги 2-го уровня по Шарату Джойсу в традиции Шри К. Паттабхи Джойса. Основатель школы аштанга-йоги в Нижнем Новгороде и online Аштанга-шалы, ведущий преподаватель школы HotYoga36 в Санкт-Петербурге. Практикует более 13 лет.
           </p>
-          <p className="font-body text-muted-foreground leading-relaxed">
+          <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed">
             Макс получил авторизацию (официальное право на преподавание) после нескольких лет интенсивного обучения в Индии (Майсор). Долина Куллу и Вашишт — его любимые места на планете. Свой первый йога-тур сюда он привез еще в 2012 году. Главный принцип его преподавания: «Практика — главный учитель, но живой учитель сократит тебе дорогу в несколько раз». В этом туре Макс щедро делится не только правками на коврике, но и местом, которое его вдохновляет.
           </p>
         </DialogContent>
@@ -107,10 +107,10 @@ const LeadersSection = () => {
           <DialogHeader>
             <DialogTitle className="font-display text-2xl">Илья Харитонов</DialogTitle>
           </DialogHeader>
-          <p className="font-body text-muted-foreground leading-relaxed">
+          <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed">
             Илья Харитонов — маркетолог, стратег, основатель проекта «Система» (systemarketing.ru). Более 15 лет занимается созданием и управлением маркетингом для ведущих бизнесов России. Автор уникального системного подхода в менеджменте, основанного на принципах Кармического Маркетинга.
           </p>
-          <p className="font-body text-muted-foreground leading-relaxed">
+          <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed">
             Илья — практик, который доказал, что бизнес можно успешно строить из любой точки мира. Он построил 100% удаленный и эффективный бизнес, находясь в постоянных путешествиях. Илья прожил в Индии более 3 лет, два из которых (включая 6 месяцев непрерывно) — прямо здесь, в гималайской деревне Вашишт. В туре Илья поделится тем, как выстраивать систему в жизни и бизнесе, чтобы не откладывать жизнь на потом и зарабатывать, находясь в месте силы.
           </p>
         </DialogContent>
