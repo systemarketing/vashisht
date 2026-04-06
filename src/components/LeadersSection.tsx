@@ -33,7 +33,7 @@ const LeadersSection = () => {
             <img src={maxImg} alt="Макс Лапшин" loading="lazy" className="w-full h-80 object-cover object-top" />
             <div className="p-8">
               <h3 className="font-display text-3xl text-foreground mb-3">Макс Лапшин</h3>
-              <p className="font-body text-muted-foreground leading-relaxed mb-6">
+              <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed mb-6">
                 Авторизованный преподаватель Аштанга-йоги (KPJAYI, 2-й уровень). 13 лет ежедневной практики. Основатель Аштанга йога шалы в Н.Новгороде. Свой первый тур в Вашишт провел еще в 2019 году.
               </p>
               <div className="flex items-center gap-4 mb-6">
@@ -67,7 +67,7 @@ const LeadersSection = () => {
             <img src={ilyaImg} alt="Илья Харитонов" loading="lazy" className="w-full h-80 object-cover object-top" />
             <div className="p-8">
               <h3 className="font-display text-3xl text-foreground mb-3">Илья Харитонов</h3>
-              <p className="font-body text-muted-foreground leading-relaxed mb-6">
+              <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed mb-6">
                 Маркетолог, бизнес-консультант, основатель команды «Системы» и адепт подхода кармического маркетинга. Жил в Гималаях и выстроил 100% удаленный системный бизнес.
               </p>
               <div className="flex items-center gap-4 mb-6">
