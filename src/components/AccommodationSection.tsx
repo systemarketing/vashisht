@@ -126,7 +126,7 @@ const AccommodationSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="font-body text-section-light-foreground/70 text-lg text-center max-w-3xl mx-auto leading-relaxed mb-16 whitespace-pre-line"
+          className="font-body text-section-light-foreground/70 text-sm md:text-lg text-center max-w-3xl mx-auto leading-relaxed mb-16 whitespace-pre-line"
         >
           Наш лагерь — это уютный ретрит-центр «Васиштха йога дом»,
           расположенный прямо в деревне Вашишт.
@@ -140,7 +140,7 @@ const AccommodationSection = () => {
           transition={{ delay: 0.25 }}
           className="max-w-3xl mx-auto mb-16"
         >
-          <ul className="font-body text-section-light-foreground/70 text-lg space-y-3">
+          <ul className="font-body text-section-light-foreground/70 text-sm md:text-lg space-y-3">
             <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Практика:</strong> Просторный зал для йоги с панорамными окнами на долину Куллу и снежные пики.</span></li>
             <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Размещение:</strong> Одно- и двухместные номера. У каждого номера балкон или терраса для встречи рассветов.</span></li>
             <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Атмосфера:</strong> Никакого городского шума — только звуки горных водопадов, пение птиц и чистый воздух.</span></li>
