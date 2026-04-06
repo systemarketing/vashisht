@@ -66,7 +66,7 @@ const ProgramSection = () => {
               </div>
               <div className="w-full md:w-1/2">
                 <h3 className="font-display text-3xl text-foreground mb-4">{item.title}</h3>
-                <p <p className="font-body text-muted-foreground leading-relaxed text-sm md:text-lg">{item.description}</p>>{item.description}</p>
+                <p className="font-body text-muted-foreground leading-relaxed text-sm md:text-lg">{item.description}</p>
               </div>
             </motion.div>
           ))}
