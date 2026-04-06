@@ -55,7 +55,7 @@ const SiteHeader = () => {
             </a>
             <button
               onClick={() => setBookingOpen(true)}
-              className="px-5 py-1.5 bg-primary/90 text-primary-foreground font-body text-sm rounded-sm hover:bg-primary transition-colors"
+              className="px-4 py-1 border border-foreground/40 text-foreground/80 font-body text-xs rounded-sm hover:bg-foreground/10 transition-colors"
             >
               Забронировать
             </button>
