@@ -57,7 +57,7 @@ const WorkshopSection = () => {
           <p className="font-body text-muted-foreground leading-relaxed text-base">
             В основную программу включены 3 воркшопа по маркетингу, менеджменту и соц.сетям.
           </p>
-          <p className="font-body text-muted-foreground leading-relaxed text-base">
+          <p className="font-body text-muted-foreground leading-relaxed text-xs">
             Ведущий Илья Харитонов — более 15 лет в маркетинге и менеджменте, основатель проекта «Система», маркетинг-консультант крупных бизнесов и ведущих экспертов в России (Центр Дикарева, КуулКлевер, АТОМ, Kalinov Milk и&nbsp;др). Илья поделится своим опытом, реальными кейсами и ответит на самые важные вопросы для тех, кто создает свое дело, двигает себя и свою экспертность, кто хочет быть в курсе современных инструментов и методов продвижения
           </p>
         </motion.div>

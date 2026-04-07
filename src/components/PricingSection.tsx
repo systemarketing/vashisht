@@ -27,7 +27,7 @@ const PricingSection = () => {
           <p className="font-display text-3xl text-muted-foreground line-through mb-1">180 000 руб.</p>
           <p className="font-display text-5xl md:text-6xl text-primary mb-2">150 000 руб.</p>
           <p className="font-body text-muted-foreground uppercase tracking-wider mb-2 text-sm">за 12 дней</p>
-          <p className="font-body text-muted-foreground mb-8 text-base">В стоимость включены 9 Аштанга йога Майсор-классов, 3 маркетинг мастер класса, проживание в ретрит-центре с завтраком, трансфер Дели–Вашишт–Дели, трекинги по программе, помощь с оформлением визы.</p>
+          <p className="font-body text-muted-foreground mb-8 text-sm">В стоимость включены 9 Аштанга йога Майсор-классов, 3 маркетинг мастер класса, проживание в ретрит-центре с завтраком, трансфер Дели–Вашишт–Дели, трекинги по программе, помощь с оформлением визы.</p>
           
           <p className="font-body text-muted-foreground mb-2 text-base">Бронь места: <strong className="text-foreground">20 000 руб.</strong> (невозвратная сумма).</p>
           <p className="font-body text-muted-foreground text-sm mb-10">Авиаперелет из России до Дели и обратно приобретается участниками самостоятельно.</p>
