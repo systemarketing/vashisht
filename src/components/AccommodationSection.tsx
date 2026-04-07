@@ -96,7 +96,7 @@ const AccommodationSection = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
 
   return (
-    <section id="accommodation" className="py-24 bg-section-light">
+    <section id="accommodation" className="py-24 bg-[hsl(30,15%,90%)] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMC41IiBmaWxsPSJyZ2JhKDAsMCwwLDAuMDMpIi8+PC9zdmc+')]">
       <div className="max-w-6xl mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -188,12 +188,15 @@ const AccommodationSection = () => {
 
         {/* CTA Button */}
         <div className="text-center">
-          <button
+          <motion.button
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
             onClick={() => setBookingOpen(true)}
-            className="font-body text-sm md:text-base px-8 py-3 border border-foreground/30 rounded-full text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+            className="px-10 py-4 bg-primary text-primary-foreground font-body font-medium text-base tracking-wider uppercase rounded-sm hover:opacity-90 transition-opacity"
           >
             Забронировать номер
-          </button>
+          </motion.button>
         </div>
       </div>
 
