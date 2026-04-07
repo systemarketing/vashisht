@@ -6,6 +6,7 @@ import VashishtSection from "@/components/VashishtSection";
 import RoerichSection from "@/components/RoerichSection";
 import DussehraSection from "@/components/DussehraSection";
 import AccommodationSection from "@/components/AccommodationSection";
+import WorkshopSection from "@/components/WorkshopSection";
 import GallerySection from "@/components/GallerySection";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
@@ -22,6 +23,7 @@ const Index = () => {
       <LeadersSection />
       <LocationBlock />
       <AccommodationSection />
+      <WorkshopSection />
       <GallerySection />
       <PricingSection />
       <FAQSection />
