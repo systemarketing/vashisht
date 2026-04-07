@@ -102,7 +102,7 @@ const WorkshopSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center space-y-6"
         >
-          <p className="font-body text-sm text-muted-foreground italic">
+          <p className="font-body text-muted-foreground italic text-base">
             Кстати, этот сайт сделан Ильей за 2 дня без дизайнера и программиста — вы тоже так научитесь
           </p>
 

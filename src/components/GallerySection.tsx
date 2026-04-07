@@ -50,7 +50,7 @@ const GallerySection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-display text-4xl md:text-5xl text-foreground text-center"
+          className="font-display text-4xl text-center text-primary-foreground md:text-6xl"
         >
           Атмосфера тура
         </motion.h2>

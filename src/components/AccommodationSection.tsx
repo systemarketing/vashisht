@@ -102,7 +102,7 @@ const AccommodationSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-display text-4xl md:text-5xl text-section-light-foreground text-center mb-20"
+          className="font-display text-4xl md:text-6xl text-section-light-foreground text-center mb-20"
         >
           Где будем жить и практиковать?
         </motion.h2>
@@ -140,10 +140,10 @@ const AccommodationSection = () => {
           </div>
           <div className="w-full md:w-1/2">
             <p className="font-body text-section-light-foreground/80 text-sm md:text-base leading-relaxed mb-4">
-              Мы будем жить уютных комнатах в эко-стиле, с деревянной мебелью и панорамными окнами с видом на долину.
+              Мы будем жить в уютных комнатах в эко-стиле, с деревянной мебелью и панорамными окнами с видом на долину.
             </p>
             <p className="font-body text-section-light-foreground/80 text-sm md:text-base leading-relaxed mb-4">
-              Есть одноместное размещение и двуместное с разделенными постелями. В каждом номере деревянные полы, туалет и душ с горячей водой, постельные принадлежности, полотенца, одеяла.
+              Есть одноместное и двуместное размещение с разделенными постелями. В каждом номере деревянные полы, туалет и душ с горячей водой, постельные принадлежности, полотенца, одеяла.
             </p>
             <p className="font-body text-section-light-foreground/80 text-sm md:text-base leading-relaxed">
               В проживание включен вегетарианский завтрак в индийском или европейском стиле
@@ -179,7 +179,7 @@ const AccommodationSection = () => {
           className="max-w-4xl mx-auto mb-12"
         >
           <p className="font-body text-section-light-foreground/70 text-sm md:text-base leading-relaxed mb-4">
-            Также в ретрит центре доступен широкий спектр оздоровительных процедур: классический, тайский, шиатсу, аювердический масляный массаж, звуковой массаж с тибетскими поющими чашами, лимфодреннажный массаж и палсинг-терапия.
+            Также, в ретрит центре доступен широкий спектр оздоровительных процедур: классический, тайский, шиатсу, аювердический масляный массаж, звуковой массаж с тибетскими поющими чашами, лимфодреннажный массаж и палсинг-терапия.
           </p>
           <p className="font-body text-section-light-foreground/70 text-sm md:text-base leading-relaxed">
             Мы можем помочь забронировать размещение, если вы захотите приехать раньше или остаться в Вашишите после основной программы тура.
