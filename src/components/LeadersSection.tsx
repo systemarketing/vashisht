@@ -8,6 +8,8 @@ const ilyaImg = "https://storage.yandexcloud.net/systemarketing-media/Kharitonov
 const LeadersSection = () => {
   const [maxOpen, setMaxOpen] = useState(false);
   const [ilyaOpen, setIlyaOpen] = useState(false);
+  const [maxExpanded, setMaxExpanded] = useState(false);
+  const [ilyaExpanded, setIlyaExpanded] = useState(false);
 
   return (
     <section id="leaders" className="py-24 bg-secondary/30">
@@ -86,21 +88,22 @@ const LeadersSection = () => {
         </div>
       </div>
 
-      <Dialog open={maxOpen} onOpenChange={setMaxOpen}>
+      <Dialog open={maxOpen} onOpenChange={(open) => { setMaxOpen(open); if (!open) setMaxExpanded(false); }}>
         <DialogContent className="bg-card border-border max-w-3xl max-h-[90vh] overflow-y-auto [&>button]:top-2 [&>button]:right-2 [&>button]:bg-card/80 [&>button]:rounded-full [&>button]:p-1">
           <img src="https://storage.yandexcloud.net/systemarketing-media/maks3.jpg" alt="Макс Лапшин" className="w-full aspect-video object-cover object-top rounded-md" />
           <DialogHeader>
             <DialogTitle className="font-display text-2xl">Макс Лапшин</DialogTitle>
           </DialogHeader>
-          <p className="font-body text-sm text-muted-foreground leading-relaxed">
-            Авторизованный преподаватель Аштанга-йоги (KPJAYI Level 2), основатель Ashtanga Gorky, ведущий преподаватель школы HotYoga36 в Санкт-Петербурге.
-          </p>
-          <p className="font-body text-sm text-muted-foreground leading-relaxed">
-            За 13 лет в традиции Макс прошел путь от первой асаны до авторизации второго уровня от Шарата Джойса — высшего признания в мире Аштанги. Он лично ассистировал Шарату Джойсу в Майсоре и в 2020 году по его личному приглашению выступал на специальной демонстрации вместе с ведущими практиками мира.
-          </p>
-          <p className="font-body text-sm text-muted-foreground leading-relaxed">
-            Жизненный опыт Макса сделал его преподавание по‑настоящему глубоким: он доказал на собственном примере, что ежедневная практика — не привилегия комфортных условий, а рабочий инструмент устойчивости в любых обстоятельствах в том числе катастрофически жестоких. Именно это ощущение внутренней свободы он передает своим ученикам.
-          </p>
+          <div className={`font-body text-sm text-muted-foreground leading-relaxed space-y-3 ${!maxExpanded ? 'line-clamp-4' : ''}`}>
+            <p>Авторизованный преподаватель Аштанга-йоги (KPJAYI Level 2), основатель Ashtanga Gorky, ведущий преподаватель школы HotYoga36 в Санкт-Петербурге.</p>
+            <p>За 13 лет в традиции Макс прошел путь от первой асаны до авторизации второго уровня от Шарата Джойса — высшего признания в мире Аштанги. Он лично ассистировал Шарату Джойсу в Майсоре и в 2020 году по его личному приглашению выступал на специальной демонстрации вместе с ведущими практиками мира.</p>
+            <p>Жизненный опыт Макса сделал его преподавание по‑настоящему глубоким: он доказал на собственном примере, что ежедневная практика — не привилегия комфортных условий, а рабочий инструмент устойчивости в любых обстоятельствах в том числе катастрофически жестоких. Именно это ощущение внутренней свободы он передает своим ученикам.</p>
+          </div>
+          {!maxExpanded && (
+            <button onClick={() => setMaxExpanded(true)} className="font-body text-sm text-primary hover:text-primary/80 transition-colors mt-1">
+              Читать далее →
+            </button>
+          )}
           <div className="flex items-center gap-6 pt-2 flex-wrap">
             <a href="https://www.instagram.com/max_lapshin/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-body">
               <Instagram className="w-4 h-4" />
@@ -118,21 +121,22 @@ const LeadersSection = () => {
         </DialogContent>
       </Dialog>
 
-      <Dialog open={ilyaOpen} onOpenChange={setIlyaOpen}>
+      <Dialog open={ilyaOpen} onOpenChange={(open) => { setIlyaOpen(open); if (!open) setIlyaExpanded(false); }}>
         <DialogContent className="bg-card border-border max-w-3xl max-h-[90vh] overflow-y-auto [&>button]:top-2 [&>button]:right-2 [&>button]:bg-card/80 [&>button]:rounded-full [&>button]:p-1">
           <img src="https://storage.yandexcloud.net/systemarketing-media/Ilya_Kharitonov.png" alt="Илья Харитонов" className="w-full aspect-video object-cover object-top rounded-md" />
           <DialogHeader>
             <DialogTitle className="font-display text-2xl">Илья Харитонов</DialogTitle>
           </DialogHeader>
-          <p className="font-body text-sm text-muted-foreground leading-relaxed">
-            Маркетолог, стратег, основатель проекта «Система».
-          </p>
-          <p className="font-body text-sm text-muted-foreground leading-relaxed">
-            За 15+ лет в профессии Илья прошел путь от управления маркетингом федеральных бизнесов до создания собственного проекта "Система" (systemarketing.ru). Сейчас Илья помогает крупным компаниям масштабироваться (АТОМ, КуулКлевер, Qultura, Kalinov Milk), а независимым профессионалам (Центр Дикарева) — выстраивать стабильный поток клиентов без выгорания.
-          </p>
-          <p className="font-body text-sm text-muted-foreground leading-relaxed">
-            Илья разработал уникальный подход, при котором коммерческий успех строится на экологичности и подлинной ценности продукта. Свой статус топового маркетолога Илья бескомпромиссно соединил с личной свободой: он построил полностью удаленную команду и годами руководит сложными бизнес-процессами, в том числе находясь в Индии и Гималаях.
-          </p>
+          <div className={`font-body text-sm text-muted-foreground leading-relaxed space-y-3 ${!ilyaExpanded ? 'line-clamp-4' : ''}`}>
+            <p>Маркетолог, стратег, основатель проекта «Система».</p>
+            <p>За 15+ лет в профессии Илья прошел путь от управления маркетингом федеральных бизнесов до создания собственного проекта "Система" (systemarketing.ru). Сейчас Илья помогает крупным компаниям масштабироваться (АТОМ, КуулКлевер, Qultura, Kalinov Milk), а независимым профессионалам (Центр Дикарева) — выстраивать стабильный поток клиентов без выгорания.</p>
+            <p>Илья разработал уникальный подход, при котором коммерческий успех строится на экологичности и подлинной ценности продукта. Свой статус топового маркетолога Илья бескомпромиссно соединил с личной свободой: он построил полностью удаленную команду и годами руководит сложными бизнес-процессами, в том числе находясь в Индии и Гималаях.</p>
+          </div>
+          {!ilyaExpanded && (
+            <button onClick={() => setIlyaExpanded(true)} className="font-body text-sm text-primary hover:text-primary/80 transition-colors mt-1">
+              Читать далее →
+            </button>
+          )}
           <div className="flex items-center gap-6 pt-2 flex-wrap">
             <a href="https://systemarketing.ru/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-body">
               <ExternalLink className="w-4 h-4" />
