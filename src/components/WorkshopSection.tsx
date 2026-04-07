@@ -54,10 +54,10 @@ const WorkshopSection = () => {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="max-w-3xl mx-auto space-y-4 mb-16 text-center"
         >
-          <p className="font-body text-sm text-muted-foreground leading-relaxed">
+          <p className="font-body text-muted-foreground leading-relaxed text-base">
             В основную программу включены 3 воркшопа по маркетингу, менеджменту и соц.сетям.
           </p>
-          <p className="font-body text-sm text-muted-foreground leading-relaxed">
+          <p className="font-body text-muted-foreground leading-relaxed text-base">
             Ведущий Илья Харитонов — более 15 лет в маркетинге и менеджменте, основатель проекта «Система», маркетинг-консультант крупных бизнесов и ведущих экспертов в России (Центр Дикарева, КуулКлевер, АТОМ, Kalinov Milk и&nbsp;др). Илья поделится своим опытом, реальными кейсами и ответит на самые важные вопросы для тех, кто создает свое дело, двигает себя и свою экспертность, кто хочет быть в курсе современных инструментов и методов продвижения
           </p>
         </motion.div>
@@ -107,10 +107,10 @@ const WorkshopSection = () => {
           </p>
 
           <div className="space-y-1">
-            <p className="font-body text-sm text-muted-foreground">
+            <p className="font-body text-muted-foreground text-base">
               Есть вопрос по маркетингу и менеджменту?
             </p>
-            <p className="font-body text-sm text-muted-foreground">
+            <p className="font-body text-muted-foreground text-base">
               Задайте свой вопрос Илье, чтобы обсудить его на воркшопах.
             </p>
           </div>
