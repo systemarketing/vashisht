@@ -30,8 +30,10 @@ const Index = () => {
       <ContactCTASection />
       <QuoteSection />
       <footer className="py-12 bg-card border-t border-border text-center">
-        <p className="font-body text-muted-foreground text-sm">
-          © 2026 Аштанга-тур в Гималаи. Все права защищены.
+        <p className="font-body text-muted-foreground text-sm whitespace-pre-line">
+          © 2026 Туры в Гималаи himalayatour.ru{"\n"}
+          Все права защищены{"\n"}
+          Маркетинг и дизайн: systemarketing.ru
         </p>
       </footer>
     </main>
