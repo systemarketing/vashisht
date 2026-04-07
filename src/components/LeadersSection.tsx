@@ -8,6 +8,8 @@ const ilyaImg = "https://storage.yandexcloud.net/systemarketing-media/Kharitonov
 const LeadersSection = () => {
   const [maxOpen, setMaxOpen] = useState(false);
   const [ilyaOpen, setIlyaOpen] = useState(false);
+  const [maxExpanded, setMaxExpanded] = useState(false);
+  const [ilyaExpanded, setIlyaExpanded] = useState(false);
 
   return (
     <section id="leaders" className="py-24 bg-secondary/30">
