@@ -92,12 +92,21 @@ const LeadersSection = () => {
           <DialogHeader>
             <DialogTitle className="font-display text-2xl">Макс Лапшин</DialogTitle>
           </DialogHeader>
-          <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed">
-            Макс Лапшин — авторизованный преподаватель Аштанга-йоги 2-го уровня по Шарату Джойсу в традиции Шри К. Паттабхи Джойса. Основатель школы аштанга-йоги в Нижнем Новгороде и online Аштанга-шалы, ведущий преподаватель школы HotYoga36 в Санкт-Петербурге. Практикует более 13 лет.
+          <p className="font-body text-sm text-muted-foreground leading-relaxed">
+            Авторизованный преподаватель Аштанга-йоги (KPJAYI Level 2), основатель Ashtanga Gorky, ведущий преподаватель школы HotYoga36 в Санкт-Петербурге.
           </p>
-          <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed">
-            Макс получил авторизацию (официальное право на преподавание) после нескольких лет интенсивного обучения в Индии (Майсор). Долина Куллу и Вашишт — его любимые места на планете. Свой первый йога-тур сюда он привез еще в 2012 году. Главный принцип его преподавания: «Практика — главный учитель, но живой учитель сократит тебе дорогу в несколько раз». В этом туре Макс щедро делится не только правками на коврике, но и местом, которое его вдохновляет.
+          <p className="font-body text-sm text-muted-foreground leading-relaxed">
+            За 13 лет в традиции Макс прошел путь от первой асаны до авторизации второго уровня от Шарата Джойса — высшего признания в мире Аштанги. Он лично ассистировал Шарату Джойсу в Майсоре и в 2020 году по его личному приглашению выступал на специальной демонстрации вместе с ведущими практиками мира.
           </p>
+          <p className="font-body text-sm text-muted-foreground leading-relaxed">
+            Жизненный опыт Макса сделал его преподавание по‑настоящему глубоким: он доказал на собственном примере, что ежедневная практика — не привилегия комфортных условий, а рабочий инструмент устойчивости в любых обстоятельствах в том числе катастрофически жестоких. Именно это ощущение внутренней свободы он передает своим ученикам.
+          </p>
+          <div className="flex items-center gap-6 pt-2">
+            <a href="https://systemarketing.ru/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-body">
+              <ExternalLink className="w-4 h-4" />
+              <span>Проект СИСТЕМА</span>
+            </a>
+          </div>
         </DialogContent>
       </Dialog>
 
@@ -107,12 +116,29 @@ const LeadersSection = () => {
           <DialogHeader>
             <DialogTitle className="font-display text-2xl">Илья Харитонов</DialogTitle>
           </DialogHeader>
-          <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed">
-            Илья Харитонов — маркетолог, стратег, основатель проекта «Система» (systemarketing.ru). Более 15 лет занимается созданием и управлением маркетингом для ведущих бизнесов России. Автор уникального системного подхода в менеджменте, основанного на принципах Кармического Маркетинга.
+          <p className="font-body text-sm text-muted-foreground leading-relaxed">
+            Маркетолог, стратег, основатель проекта «Система».
           </p>
-          <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed">
-            Илья — практик, который доказал, что бизнес можно успешно строить из любой точки мира. Он построил 100% удаленный и эффективный бизнес, находясь в постоянных путешествиях. Илья прожил в Индии более 3 лет, два из которых (включая 6 месяцев непрерывно) — прямо здесь, в гималайской деревне Вашишт. В туре Илья поделится тем, как выстраивать систему в жизни и бизнесе, чтобы не откладывать жизнь на потом и зарабатывать, находясь в месте силы.
+          <p className="font-body text-sm text-muted-foreground leading-relaxed">
+            За 15+ лет в профессии Илья прошел путь от управления маркетингом федеральных бизнесов до создания собственного проекта "Система" (systemarketing.ru). Сейчас Илья помогает крупным компаниям масштабироваться (АТОМ, КуулКлевер, Qultura, Kalinov Milk), а независимым профессионалам (Центр Дикарева) — выстраивать стабильный поток клиентов без выгорания.
           </p>
+          <p className="font-body text-sm text-muted-foreground leading-relaxed">
+            Илья разработал уникальный подход, при котором коммерческий успех строится на экологичности и подлинной ценности продукта. Свой статус топового маркетолога Илья бескомпромиссно соединил с личной свободой: он построил полностью удаленную команду и годами руководит сложными бизнес-процессами, в том числе находясь в Индии и Гималаях.
+          </p>
+          <div className="flex items-center gap-6 pt-2 flex-wrap">
+            <a href="https://www.instagram.com/haritonovio/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-body">
+              <Instagram className="w-4 h-4" />
+              <span>Инста</span>
+            </a>
+            <a href="https://t.me/haritonovio" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-body">
+              <Send className="w-4 h-4" />
+              <span>Телеграм канал</span>
+            </a>
+            <a href="https://m.vk.com/haritonovio" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-body">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 16.09c.2.36-.04.54-.33.54h-1.37c-.28 0-.54-.22-.54-.22s-1.07-1.1-1.9-1.1c-.16 0-.33.06-.33.4v.72c0 .28-.2.38-.6.38-1.46 0-3.08-.88-4.24-2.54-1.72-2.48-2.18-4.34-2.18-4.72 0-.16.06-.32.38-.32h1.38c.32 0 .42.14.54.42.6 1.7 1.78 3.58 2.14 3.58.16 0 .24-.08.24-.5V10.3c-.04-.86-.5-.94-.5-1.24 0-.14.12-.3.32-.3h2.18c.26 0 .36.14.36.4v2.68c0 .22.1.32.18.32.16 0 .28-.1.6-.42 1.02-1.14 1.74-2.92 1.74-2.92.08-.18.24-.36.54-.36h1.38c.42 0 .5.22.42.44-.2.7-1.84 3.16-1.84 3.16-.14.22-.18.34 0 .58l1.49 1.6z"/></svg>
+              <span>Группа Вконтакте</span>
+            </a>
+          </div>
         </DialogContent>
       </Dialog>
     </section>
