@@ -44,7 +44,7 @@ const GallerySection = () => {
   };
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-[hsl(30,15%,90%)]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='0.6' fill='%23c4b5a3' fill-opacity='0.15'/%3E%3C/svg%3E\")" }}>
       <div className="max-w-7xl mx-auto px-4 mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
