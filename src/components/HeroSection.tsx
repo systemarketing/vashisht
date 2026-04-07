@@ -67,7 +67,7 @@ const HeroSection = () => {
           className="font-body text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           Путешествие для тех, кто развивает себя и своё дело:
-          <br />9 йога-классов + 3 воркшопа по маркетингу и тайм-менеджменту
+          <br />8 йога-классов + 3 воркшопа по маркетингу и тайм-менеджменту
         </motion.p>
 
         <motion.button
