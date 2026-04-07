@@ -40,7 +40,7 @@ const PricingSection = () => {
 
           <Accordion type="single" collapsible className="mb-10 text-left">
             <AccordionItem value="payment-terms" className="border border-border rounded-lg px-6 bg-background/50">
-              <AccordionTrigger className="font-display text-base text-foreground hover:text-primary py-5 text-left">
+              <AccordionTrigger className="font-body text-base text-foreground hover:text-primary py-5 text-left">
                 Условия оплаты и рассрочка
               </AccordionTrigger>
               <AccordionContent className="font-body text-muted-foreground text-sm leading-relaxed pb-5 space-y-4">
