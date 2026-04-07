@@ -88,7 +88,7 @@ const LeadersSection = () => {
         </div>
       </div>
 
-      <Dialog open={maxOpen} onOpenChange={setMaxOpen}>
+      <Dialog open={maxOpen} onOpenChange={(open) => { setMaxOpen(open); if (!open) setMaxExpanded(false); }}>
         <DialogContent className="bg-card border-border max-w-3xl max-h-[90vh] overflow-y-auto [&>button]:top-2 [&>button]:right-2 [&>button]:bg-card/80 [&>button]:rounded-full [&>button]:p-1">
           <img src="https://storage.yandexcloud.net/systemarketing-media/maks3.jpg" alt="Макс Лапшин" className="w-full aspect-video object-cover object-top rounded-md" />
           <DialogHeader>
@@ -121,7 +121,7 @@ const LeadersSection = () => {
         </DialogContent>
       </Dialog>
 
-      <Dialog open={ilyaOpen} onOpenChange={setIlyaOpen}>
+      <Dialog open={ilyaOpen} onOpenChange={(open) => { setIlyaOpen(open); if (!open) setIlyaExpanded(false); }}>
         <DialogContent className="bg-card border-border max-w-3xl max-h-[90vh] overflow-y-auto [&>button]:top-2 [&>button]:right-2 [&>button]:bg-card/80 [&>button]:rounded-full [&>button]:p-1">
           <img src="https://storage.yandexcloud.net/systemarketing-media/Ilya_Kharitonov.png" alt="Илья Харитонов" className="w-full aspect-video object-cover object-top rounded-md" />
           <DialogHeader>
