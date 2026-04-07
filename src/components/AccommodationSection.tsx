@@ -115,7 +115,7 @@ const AccommodationSection = () => {
           className="flex flex-col md:flex-row gap-8 md:gap-12 items-center mb-20"
         >
           <div className="w-full md:w-1/2">
-            <h3 className="font-display text-2xl md:text-3xl text-section-light-foreground mb-4">Ретрит центр</h3>
+            <h3 className="font-display text-2xl md:text-3xl text-section-light-foreground mb-4 text-center">Ретрит центр</h3>
             <ImageSlider images={section1Images} altPrefix="Ретрит-центр" />
           </div>
           <div className="w-full md:w-1/2">
@@ -137,7 +137,7 @@ const AccommodationSection = () => {
           className="flex flex-col md:flex-row-reverse gap-8 md:gap-12 items-center mb-20"
         >
           <div className="w-full md:w-1/2">
-            <h3 className="font-display text-2xl md:text-3xl text-section-light-foreground mb-4">Комфортные номера</h3>
+            <h3 className="font-display text-2xl md:text-3xl text-section-light-foreground mb-4 text-center">Комфортные номера</h3>
             <ImageSlider images={section2Images} altPrefix="Номера" />
           </div>
           <div className="w-full md:w-1/2">
@@ -161,7 +161,7 @@ const AccommodationSection = () => {
           className="flex flex-col md:flex-row gap-8 md:gap-12 items-center mb-20"
         >
           <div className="w-full md:w-1/2">
-            <h3 className="font-display text-2xl md:text-3xl text-section-light-foreground mb-4">Зал практик</h3>
+            <h3 className="font-display text-2xl md:text-3xl text-section-light-foreground mb-4 text-center">Зал практик</h3>
             <ImageSlider images={section3Images} altPrefix="Зал для практик" />
           </div>
           <div className="w-full md:w-1/2">
