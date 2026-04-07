@@ -23,7 +23,7 @@ const PricingSection = () => {
           transition={{ delay: 0.15 }}
           className="bg-card border border-border rounded-lg p-10 md:p-14"
         >
-          <p className="font-body text-muted-foreground mb-2 text-lg">Тур рассчитан на камерную группу — доступно только 15 мест.</p>
+          <p className="font-body text-muted-foreground mb-2 text-base">Тур рассчитан на камерную группу — доступно только 15 мест.</p>
           <p className="font-display text-3xl text-muted-foreground line-through mb-1">180 000 руб.</p>
           <p className="font-display text-5xl md:text-6xl text-primary mb-2">150 000 руб.</p>
           <p className="font-body text-muted-foreground uppercase tracking-wider mb-2 text-sm">за 12 дней</p>
