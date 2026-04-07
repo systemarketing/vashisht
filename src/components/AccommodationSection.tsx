@@ -1,114 +1,99 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import BookingDialog from "./BookingDialog";
 
-const galleryImages = [
-  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(1).jpg",
+interface SliderProps {
+  images: string[];
+  altPrefix: string;
+}
+
+const ImageSlider = ({ images, altPrefix }: SliderProps) => {
+  const [current, setCurrent] = useState(0);
+  const touchStartX = useRef(0);
+
+  const prev = useCallback(() => setCurrent((c) => (c - 1 + images.length) % images.length), [images.length]);
+  const next = useCallback(() => setCurrent((c) => (c + 1) % images.length), [images.length]);
+
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  }, []);
+  const onTouchEnd = useCallback((e: React.TouchEvent) => {
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 50) delta > 0 ? next() : prev();
+  }, [next, prev]);
+
+  return (
+    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden group/slider">
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={current}
+          src={images[current]}
+          alt={`${altPrefix} ${current + 1}`}
+          loading="lazy"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+          className="absolute inset-0 w-full h-full object-cover"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        />
+      </AnimatePresence>
+
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={prev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-background/30 backdrop-blur-md border border-white/10 text-foreground/60 hover:text-foreground hover:bg-background/50 transition-all opacity-0 group-hover/slider:opacity-100"
+            aria-label="Назад"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-background/30 backdrop-blur-md border border-white/10 text-foreground/60 hover:text-foreground hover:bg-background/50 transition-all opacity-0 group-hover/slider:opacity-100"
+            aria-label="Вперёд"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                className={`w-2 h-2 rounded-full transition-all ${i === current ? "bg-white scale-125" : "bg-white/40"}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+const section1Images = [
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(9).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(8).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(10).jpg",
+];
+
+const section2Images = [
   "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(2).jpg",
   "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(3).jpg",
   "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(4).jpg",
   "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(5).jpg",
-  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(6).jpg",
-  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(7).jpg",
-  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(8).jpg",
-  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(9).jpg",
-  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(10).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(1).jpg",
 ];
 
-const SCROLL_AMOUNT = 400;
+const section3Images = [
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(6).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/Vasihtha_yoga_dom%20(7).jpg",
+];
 
 const AccommodationSection = () => {
-  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const animRef = useRef<number>(0);
-  const posRef = useRef(0);
-  const pausedRef = useRef(false);
-
-  const loopedImages = [...galleryImages, ...galleryImages, ...galleryImages];
-
-  const getSingleSetWidth = useCallback(() => {
-    const el = scrollRef.current;
-    return el ? el.scrollWidth / 3 : 0;
-  }, []);
-
-  const normalizePos = useCallback(() => {
-    const singleSetWidth = getSingleSetWidth();
-    if (singleSetWidth > 0) {
-      while (posRef.current >= singleSetWidth * 2) posRef.current -= singleSetWidth;
-      while (posRef.current < 0) posRef.current += singleSetWidth;
-    }
-  }, [getSingleSetWidth]);
-
-  // Auto-scroll
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    const speed = 0.4;
-
-    const step = () => {
-      if (!pausedRef.current) {
-        posRef.current += speed;
-        normalizePos();
-        el.scrollLeft = posRef.current;
-      }
-      animRef.current = requestAnimationFrame(step);
-    };
-
-    // Start from middle set
-    posRef.current = getSingleSetWidth();
-    el.scrollLeft = posRef.current;
-    animRef.current = requestAnimationFrame(step);
-
-    return () => cancelAnimationFrame(animRef.current);
-  }, [normalizePos, getSingleSetWidth]);
-
-  const pause = useCallback(() => { pausedRef.current = true; }, []);
-  const resume = useCallback(() => {
-    const el = scrollRef.current;
-    if (el) posRef.current = el.scrollLeft;
-    pausedRef.current = false;
-  }, []);
-
-  // Arrow click scroll
-  const scrollBy = useCallback((dir: number) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    pausedRef.current = true;
-    const target = el.scrollLeft + dir * SCROLL_AMOUNT;
-    el.scrollTo({ left: target, behavior: "smooth" });
-    setTimeout(() => {
-      posRef.current = el.scrollLeft;
-      normalizePos();
-      el.scrollLeft = posRef.current;
-      pausedRef.current = false;
-    }, 500);
-  }, [normalizePos]);
-
-  // Touch swipe support
-  const touchStartX = useRef(0);
-  const touchScrollStart = useRef(0);
-
-  const onTouchStart = useCallback((e: React.TouchEvent) => {
-    pausedRef.current = true;
-    touchStartX.current = e.touches[0].clientX;
-    touchScrollStart.current = scrollRef.current?.scrollLeft ?? 0;
-  }, []);
-
-  const onTouchMove = useCallback((e: React.TouchEvent) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const delta = touchStartX.current - e.touches[0].clientX;
-    el.scrollLeft = touchScrollStart.current + delta;
-  }, []);
-
-  const onTouchEnd = useCallback(() => {
-    const el = scrollRef.current;
-    if (el) posRef.current = el.scrollLeft;
-    normalizePos();
-    if (el) el.scrollLeft = posRef.current;
-    pausedRef.current = false;
-  }, [normalizePos]);
+  const [bookingOpen, setBookingOpen] = useState(false);
 
   return (
     <section id="accommodation" className="py-24 bg-section-light">
@@ -117,120 +102,102 @@ const AccommodationSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-display text-4xl md:text-5xl text-section-light-foreground text-center mb-6"
+          className="font-display text-4xl md:text-5xl text-section-light-foreground text-center mb-20"
         >
           Где будем жить и практиковать?
         </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
+
+        {/* Section 1: Slider left, text right */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.15 }}
-          className="font-body text-section-light-foreground/70 text-sm md:text-lg text-center max-w-3xl mx-auto leading-relaxed mb-16 whitespace-pre-line"
+          className="flex flex-col md:flex-row gap-8 md:gap-12 items-center mb-20"
         >
-          Наш лагерь — это уютный ретрит-центр «Васиштха йога дом»,
-          расположенный прямо в деревне Вашишт.
-          Это пространство, специально созданное для практиков. Простые, но чистые и светлые номера выполнены в экологичном гималайском стиле с обилием дерева.
-        </motion.p>
+          <div className="w-full md:w-1/2">
+            <ImageSlider images={section1Images} altPrefix="Ретрит-центр" />
+          </div>
+          <div className="w-full md:w-1/2">
+            <p className="font-body text-section-light-foreground/80 text-sm md:text-base leading-relaxed mb-4">
+              Мы разместимся в уютном ретрит-центр «Васиштха йогадом», который расположенн прямо в деревне Вашишт, в окружении яблоневого сада с видом на заснеженные пики Гималаев.
+            </p>
+            <p className="font-body text-section-light-foreground/80 text-sm md:text-base leading-relaxed">
+              Это пространство, специально созданное для практиков.
+              <br />Никакого городского шума — только звуки горных водопадов, пение птиц и чистый воздух.
+            </p>
+          </div>
+        </motion.div>
 
+        {/* Section 2: Text left, slider right (reversed Z) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row-reverse gap-8 md:gap-12 items-center mb-20"
+        >
+          <div className="w-full md:w-1/2">
+            <ImageSlider images={section2Images} altPrefix="Номера" />
+          </div>
+          <div className="w-full md:w-1/2">
+            <p className="font-body text-section-light-foreground/80 text-sm md:text-base leading-relaxed mb-4">
+              Мы будем жить уютных комнатах в эко-стиле, с деревянной мебелью и панорамными окнами с видом на долину.
+            </p>
+            <p className="font-body text-section-light-foreground/80 text-sm md:text-base leading-relaxed mb-4">
+              Есть одноместное размещение и двуместное с разделенными постелями. В каждом номере деревянные полы, туалет и душ с горячей водой, постельные принадлежности, полотенца, одеяла.
+            </p>
+            <p className="font-body text-section-light-foreground/80 text-sm md:text-base leading-relaxed">
+              В проживание включен вегетарианский завтрак в индийском или европейском стиле
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Section 3: Slider left, text right */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row gap-8 md:gap-12 items-center mb-20"
+        >
+          <div className="w-full md:w-1/2">
+            <ImageSlider images={section3Images} altPrefix="Зал для практик" />
+          </div>
+          <div className="w-full md:w-1/2">
+            <p className="font-body text-section-light-foreground/80 text-sm md:text-base leading-relaxed mb-4">
+              Практиковать и проводить воркшопы будем в специальном зале с деревянными полами, панорамными окнами, оборудованном музыкальной системой, проектором и экраном.
+            </p>
+            <p className="font-body text-section-light-foreground/80 text-sm md:text-base leading-relaxed">
+              Для персональных занятий на открытом воздухе будет открыт большой йога-зал, с навесом от дождя и специальным настилом
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Full-width bottom text */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.25 }}
-          className="max-w-3xl mx-auto mb-16"
+          className="max-w-4xl mx-auto mb-12"
         >
-          <ul className="font-body text-section-light-foreground/70 text-sm md:text-lg space-y-3">
-            <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Практика:</strong> Просторный зал для йоги с панорамными окнами на долину Куллу и снежные пики.</span></li>
-            <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Размещение:</strong> Одно- и двухместные номера с видами на Гималаи и яблоневые сады</span></li>
-            <li className="flex gap-3"><span className="text-primary">✦</span> <span><strong>Атмосфера:</strong> Никакого городского шума — только звуки горных водопадов, пение птиц и чистый воздух.</span></li>
-          </ul>
+          <p className="font-body text-section-light-foreground/70 text-sm md:text-base leading-relaxed mb-4">
+            Также в ретрит центре доступен широкий спектр оздоровительных процедур: классический, тайский, шиатсу, аювердический масляный массаж, звуковой массаж с тибетскими поющими чашами, лимфодреннажный массаж и палсинг-терапия.
+          </p>
+          <p className="font-body text-section-light-foreground/70 text-sm md:text-base leading-relaxed">
+            Мы можем помочь забронировать размещение, если вы захотите приехать раньше или остаться в Вашишите после основной программы тура.
+          </p>
         </motion.div>
-      </div>
 
-      {/* Infinite scrolling gallery */}
-      <div className="relative overflow-hidden group">
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-section-light to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-section-light to-transparent z-10 pointer-events-none" />
-
-        {/* Arrow buttons — desktop only */}
-        <button
-          onClick={() => scrollBy(-1)}
-          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center rounded-full bg-background/30 backdrop-blur-md border border-white/10 text-foreground/60 hover:text-foreground hover:bg-background/50 transition-all opacity-0 group-hover:opacity-100"
-          aria-label="Назад"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-        <button
-          onClick={() => scrollBy(1)}
-          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center rounded-full bg-background/30 backdrop-blur-md border border-white/10 text-foreground/60 hover:text-foreground hover:bg-background/50 transition-all opacity-0 group-hover:opacity-100"
-          aria-label="Вперёд"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
-
-        <div
-          ref={scrollRef}
-          className="flex items-center gap-4 overflow-x-hidden py-4"
-          style={{ scrollBehavior: "auto" }}
-          onMouseEnter={pause}
-          onMouseLeave={resume}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
-          {loopedImages.map((src, i) => {
-            const originalIndex = i % galleryImages.length;
-            const isFeatured = originalIndex % 3 === 1;
-
-            return (
-              <div
-                key={i}
-                onClick={() => setLightboxSrc(src)}
-                className={`flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-2xl ${
-                  isFeatured
-                    ? "h-[280px] md:h-[380px] w-[320px] md:w-[440px]"
-                    : "h-[220px] md:h-[300px] w-[260px] md:w-[350px]"
-                }`}
-              >
-                <img
-                  src={src}
-                  alt={`Васиштха йога дом ${originalIndex + 1}`}
-                  loading="lazy"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-            );
-          })}
+        {/* CTA Button */}
+        <div className="text-center">
+          <button
+            onClick={() => setBookingOpen(true)}
+            className="font-body text-sm md:text-base px-8 py-3 border border-foreground/30 rounded-full text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+          >
+            Забронировать номер
+          </button>
         </div>
       </div>
 
-      {/* Lightbox */}
-      <AnimatePresence>
-        {lightboxSrc && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-background/90 backdrop-blur-sm flex items-center justify-center"
-            onClick={() => setLightboxSrc(null)}
-          >
-            <button
-              onClick={() => setLightboxSrc(null)}
-              className="absolute top-6 right-6 text-foreground hover:text-primary transition-colors"
-            >
-              <X className="w-8 h-8" />
-            </button>
-            <img
-              src={lightboxSrc}
-              alt=""
-              className="max-h-[60vh] max-w-[60vw] object-contain rounded-xl shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <BookingDialog open={bookingOpen} onOpenChange={setBookingOpen} />
     </section>
   );
 };
