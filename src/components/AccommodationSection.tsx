@@ -115,12 +115,12 @@ const AccommodationSection = () => {
           className="flex flex-col md:flex-row gap-8 md:gap-12 items-center mb-20"
         >
           <div className="w-full md:w-1/2">
-            <h3 className="font-display text-2xl md:text-3xl text-section-light-foreground mb-4 text-center">Ретрит центр</h3>
+            <h3 className="font-display text-2xl md:text-3xl text-section-light-foreground mb-4 text-center">Ретрит-центр</h3>
             <ImageSlider images={section1Images} altPrefix="Ретрит-центр" />
           </div>
           <div className="w-full md:w-1/2">
             <p className="font-body text-section-light-foreground/80 text-sm md:text-base leading-relaxed mb-4">
-              Мы разместимся в уютном ретрит-центр «Васиштха йогадом», который расположенн прямо в деревне Вашишт, в окружении яблоневого сада с видом на заснеженные пики Гималаев.
+              Мы разместимся в уютном ретрит-центр «Васиштха йогадом», который расположен прямо в деревне Вашишт, в окружении яблоневого сада с видом на заснеженные пики Гималаев.
             </p>
             <p className="font-body text-section-light-foreground/80 text-sm md:text-base leading-relaxed">
               Это пространство, специально созданное для практиков.
@@ -182,7 +182,7 @@ const AccommodationSection = () => {
           className="max-w-4xl mx-auto mb-12"
         >
           <p className="font-body text-section-light-foreground/70 text-sm md:text-base leading-relaxed mb-4">
-            Также, в ретрит центре доступен широкий спектр оздоровительных процедур: классический, тайский, шиатсу, аювердический масляный массаж, звуковой массаж с тибетскими поющими чашами, лимфодреннажный массаж и палсинг-терапия.
+            Также, в ретрит-центре доступен широкий спектр оздоровительных процедур: классический, тайский, шиатсу, аюрведический масляный массаж, звуковой массаж с тибетскими поющими чашами, лимфодренажный массаж и палсинг-терапия.
           </p>
           <p className="font-body text-section-light-foreground/70 text-sm md:text-base leading-relaxed">
             Мы можем помочь забронировать размещение, если вы захотите приехать раньше или остаться в Вашишите после основной программы тура.
