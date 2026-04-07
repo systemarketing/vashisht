@@ -55,9 +55,9 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="font-display text-xl md:text-2xl text-primary italic mb-6"
+          className="font-display text-xl text-primary italic mb-6 md:text-3xl"
         >
-          для предпринимателей и экспертов
+          Укрепляем тело. Масштабируем проекты. Создаем уверенность
         </motion.p>
 
         <motion.p
@@ -67,7 +67,7 @@ const HeroSection = () => {
           className="font-body text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           Путешествие для тех, кто развивает себя и своё дело:
-          <br />9 майсор-классов + 3 воркшопа по маркетингу и тайм-менеджменту
+          <br />9 йога-классов + 3 воркшопа по маркетингу и тайм-менеджменту
         </motion.p>
 
         <motion.button
