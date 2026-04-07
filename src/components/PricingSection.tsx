@@ -12,7 +12,7 @@ const PricingSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-display text-4xl md:text-5xl text-foreground mb-6"
+          className="font-display text-4xl md:text-6xl text-foreground mb-6"
         >
           Стоимость и условия участия
         </motion.h2>
@@ -23,13 +23,13 @@ const PricingSection = () => {
           transition={{ delay: 0.15 }}
           className="bg-card border border-border rounded-lg p-10 md:p-14"
         >
-          <p className="font-body text-muted-foreground text-sm mb-2">Тур рассчитан на камерную группу — доступно только 15 мест.</p>
+          <p className="font-body text-muted-foreground mb-2 text-lg">Тур рассчитан на камерную группу — доступно только 15 мест.</p>
           <p className="font-display text-3xl text-muted-foreground line-through mb-1">180 000 руб.</p>
           <p className="font-display text-5xl md:text-6xl text-primary mb-2">150 000 руб.</p>
-          <p className="font-body text-muted-foreground text-sm uppercase tracking-wider mb-2">за 12 дней</p>
-          <p className="font-body text-muted-foreground text-xs mb-8">В стоимость включены 9 майсор-классов, 3 бизнес-воркшопа, проживание в ретрит-центре, трансфер Дели–Вашишт–Дели, трекинги по программе, помощь с оформлением визы. Завтраки опционально.</p>
+          <p className="font-body text-muted-foreground uppercase tracking-wider mb-2 text-sm">за 12 дней</p>
+          <p className="font-body text-muted-foreground mb-8 text-base">В стоимость включены 9 Аштанга йога Майсор-классов, 3 маркетинг мастер класса, проживание в ретрит-центре с завтраком, трансфер Дели–Вашишт–Дели, трекинги по программе, помощь с оформлением визы.</p>
           
-          <p className="font-body text-muted-foreground text-sm mb-2">Бронь места: <strong className="text-foreground">20 000 руб.</strong> (невозвратная сумма).</p>
+          <p className="font-body text-muted-foreground mb-2 text-base">Бронь места: <strong className="text-foreground">20 000 руб.</strong> (невозвратная сумма).</p>
           <p className="font-body text-muted-foreground text-sm mb-10">Авиаперелет из России до Дели и обратно приобретается участниками самостоятельно.</p>
 
           <button
