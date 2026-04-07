@@ -88,7 +88,7 @@ const LeadersSection = () => {
 
       <Dialog open={maxOpen} onOpenChange={setMaxOpen}>
         <DialogContent className="bg-card border-border max-w-3xl max-h-[90vh] overflow-y-auto [&>button]:top-2 [&>button]:right-2 [&>button]:bg-card/80 [&>button]:rounded-full [&>button]:p-1">
-          <img src={maxImg} alt="Макс Лапшин" className="w-full h-64 object-cover object-top rounded-md" />
+          <img src="https://storage.yandexcloud.net/systemarketing-media/maks3.jpg" alt="Макс Лапшин" className="w-full h-64 object-cover object-top rounded-md" />
           <DialogHeader>
             <DialogTitle className="font-display text-2xl">Макс Лапшин</DialogTitle>
           </DialogHeader>
@@ -120,7 +120,7 @@ const LeadersSection = () => {
 
       <Dialog open={ilyaOpen} onOpenChange={setIlyaOpen}>
         <DialogContent className="bg-card border-border max-w-3xl max-h-[90vh] overflow-y-auto [&>button]:top-2 [&>button]:right-2 [&>button]:bg-card/80 [&>button]:rounded-full [&>button]:p-1">
-          <img src={ilyaImg} alt="Илья Харитонов" className="w-full h-64 object-cover object-top rounded-md" />
+          <img src="https://storage.yandexcloud.net/systemarketing-media/Ilya_Kharitonov.png" alt="Илья Харитонов" className="w-full h-64 object-cover object-top rounded-md" />
           <DialogHeader>
             <DialogTitle className="font-display text-2xl">Илья Харитонов</DialogTitle>
           </DialogHeader>
