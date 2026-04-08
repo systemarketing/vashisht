@@ -31,8 +31,7 @@ const Index = () => {
       <QuoteSection />
       <footer className="py-12 bg-card border-t border-border text-center">
         <p className="font-body text-muted-foreground text-sm whitespace-pre-line">
-          © 2026 Туры в Гималаи himalayatour.ru{"\n"}
-          Все права защищены{"\n"}
+          © 2026 himalayatour.ru{"\n"}
           Маркетинг и дизайн: systemarketing.ru
         </p>
       </footer>
