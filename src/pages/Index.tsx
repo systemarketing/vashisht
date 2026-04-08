@@ -1,3 +1,4 @@
+import logoSvg from "@/assets/Logo_himalayatour.svg";
 import SiteHeader from "@/components/SiteHeader";
 import HeroSection from "@/components/HeroSection";
 import ProgramSection from "@/components/ProgramSection";
@@ -29,11 +30,11 @@ const Index = () => {
       <FAQSection />
       <ContactCTASection />
       <QuoteSection />
-      <footer className="py-12 bg-card border-t border-border text-center">
-        <p className="font-body text-muted-foreground text-sm whitespace-pre-line">
-          © 2026 himalayatour.ru{"\n"}
+      <footer className="py-12 bg-card border-t border-border text-center flex flex-col items-center gap-3">
+        <img src={logoSvg} alt="himalayatour.ru" className="h-14 w-auto" />
+        <a href="https://systemarketing.ru/" target="_blank" rel="noopener noreferrer" className="font-body text-muted-foreground text-sm hover:text-primary transition-colors">
           Маркетинг и дизайн: systemarketing.ru
-        </p>
+        </a>
       </footer>
     </main>
   );
