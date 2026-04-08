@@ -1,3 +1,4 @@
+import logoSvg from "@/assets/Logo_himalayatour.svg";
 import SiteHeader from "@/components/SiteHeader";
 import HeroSection from "@/components/HeroSection";
 import ProgramSection from "@/components/ProgramSection";
