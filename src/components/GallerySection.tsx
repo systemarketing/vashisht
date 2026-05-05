@@ -26,31 +26,6 @@ const photos = [
   "https://storage.yandexcloud.net/systemarketing-media/May_Vashisht/vashisht_may%20(8).jpg",
 ];
 
-// Tile layout: each item has colSpan and rowSpan (on a 4-col grid)
-const tileLayout = [
-  { col: "col-span-2", row: "row-span-2" }, // big
-  { col: "col-span-1", row: "row-span-1" },
-  { col: "col-span-1", row: "row-span-1" },
-  { col: "col-span-1", row: "row-span-2" }, // tall
-  { col: "col-span-1", row: "row-span-1" },
-  { col: "col-span-2", row: "row-span-1" }, // wide
-  { col: "col-span-1", row: "row-span-1" },
-  { col: "col-span-1", row: "row-span-2" }, // tall
-  { col: "col-span-2", row: "row-span-1" }, // wide
-  { col: "col-span-1", row: "row-span-1" },
-  { col: "col-span-1", row: "row-span-1" },
-  { col: "col-span-2", row: "row-span-2" }, // big
-  { col: "col-span-1", row: "row-span-1" },
-  { col: "col-span-2", row: "row-span-2" }, // big
-  { col: "col-span-1", row: "row-span-1" },
-  { col: "col-span-1", row: "row-span-2" }, // tall
-  { col: "col-span-2", row: "row-span-1" }, // wide
-  { col: "col-span-1", row: "row-span-1" },
-  { col: "col-span-1", row: "row-span-1" },
-  { col: "col-span-2", row: "row-span-1" }, // wide
-  { col: "col-span-1", row: "row-span-1" },
-];
-
 const GallerySection = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -72,30 +47,27 @@ const GallerySection = () => {
         </motion.h2>
       </div>
 
-      {/* Tile grid — full width */}
+      {/* Masonry columns — без обрезки и белых пропусков */}
       <div className="px-2 md:px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] md:auto-rows-[280px] gap-2 md:gap-3">
-          {photos.map((src, i) => {
-            const layout = tileLayout[i] || { col: "col-span-1", row: "row-span-1" };
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: i * 0.04, duration: 0.5 }}
-                onClick={() => setLightboxIndex(i)}
-                className={`${layout.col} ${layout.row} cursor-pointer overflow-hidden rounded-xl group`}
-              >
-                <img
-                  src={src}
-                  alt={`Атмосфера тура ${i + 1}`}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </motion.div>
-            );
-          })}
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-2 md:gap-3">
+          {photos.map((src, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: (i % 8) * 0.04, duration: 0.5 }}
+              onClick={() => setLightboxIndex(i)}
+              className="mb-2 md:mb-3 break-inside-avoid cursor-pointer overflow-hidden rounded-xl group block"
+            >
+              <img
+                src={src}
+                alt={`Атмосфера тура ${i + 1}`}
+                loading="lazy"
+                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </motion.div>
+          ))}
         </div>
       </div>
 
