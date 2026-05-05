@@ -16,6 +16,14 @@ const photos = [
   "https://storage.yandexcloud.net/systemarketing-media/obshaya%20galery/333.jpg",
   "https://storage.yandexcloud.net/systemarketing-media/obshaya%20galery/44.jpg",
   "https://storage.yandexcloud.net/systemarketing-media/obshaya%20galery/55.png",
+  "https://storage.yandexcloud.net/systemarketing-media/May_Vashisht/vashisht_may%20(1).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/May_Vashisht/vashisht_may%20(2).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/May_Vashisht/vashisht_may%20(3).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/May_Vashisht/vashisht_may%20(4).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/May_Vashisht/vashisht_may%20(5).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/May_Vashisht/vashisht_may%20(6).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/May_Vashisht/vashisht_may%20(7).jpg",
+  "https://storage.yandexcloud.net/systemarketing-media/May_Vashisht/vashisht_may%20(8).jpg",
 ];
 
 // Tile layout: each item has colSpan and rowSpan (on a 4-col grid)
@@ -32,6 +40,14 @@ const tileLayout = [
   { col: "col-span-1", row: "row-span-1" },
   { col: "col-span-1", row: "row-span-1" },
   { col: "col-span-2", row: "row-span-2" }, // big
+  { col: "col-span-1", row: "row-span-1" },
+  { col: "col-span-2", row: "row-span-2" }, // big
+  { col: "col-span-1", row: "row-span-1" },
+  { col: "col-span-1", row: "row-span-2" }, // tall
+  { col: "col-span-2", row: "row-span-1" }, // wide
+  { col: "col-span-1", row: "row-span-1" },
+  { col: "col-span-1", row: "row-span-1" },
+  { col: "col-span-2", row: "row-span-1" }, // wide
   { col: "col-span-1", row: "row-span-1" },
 ];
 
