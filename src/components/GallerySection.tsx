@@ -41,6 +41,14 @@ const tileLayout = [
   { col: "col-span-1", row: "row-span-1" },
   { col: "col-span-2", row: "row-span-2" }, // big
   { col: "col-span-1", row: "row-span-1" },
+  { col: "col-span-2", row: "row-span-2" }, // big
+  { col: "col-span-1", row: "row-span-1" },
+  { col: "col-span-1", row: "row-span-2" }, // tall
+  { col: "col-span-2", row: "row-span-1" }, // wide
+  { col: "col-span-1", row: "row-span-1" },
+  { col: "col-span-1", row: "row-span-1" },
+  { col: "col-span-2", row: "row-span-1" }, // wide
+  { col: "col-span-1", row: "row-span-1" },
 ];
 
 const GallerySection = () => {
