@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const photos = [
-  "https://storage.yandexcloud.net/systemarketing-media/obshaya%20galery/11.png",
+  "https://storage.yandexcloud.net/systemarketing-media/yoga%20shala.jpg",
   "https://storage.yandexcloud.net/systemarketing-media/obshaya%20galery/12.jpg",
   "https://storage.yandexcloud.net/systemarketing-media/obshaya%20galery/122.jpg",
   "https://storage.yandexcloud.net/systemarketing-media/obshaya%20galery/13.jpg",
